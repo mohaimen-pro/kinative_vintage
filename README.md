@@ -1,1 +1,0 @@
-# kinative_vintage
