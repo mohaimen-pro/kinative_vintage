@@ -33,11 +33,11 @@ export default function Card_Request_List({ card_request_list }) {
                     {/* Header */}
                     <thead className="">
                         <tr className="text-left font-inter text-[15px] font-light text-[#000000]">
-                            <th className="px-10 py-5">Card Details</th>
-                            <th className="px-6 py-5">Plastic ID</th>
-                            <th className="px-6 py-5">Card Type</th>
-                            <th className="px-6 py-5">Address</th>
-                            <th className="px-6 py-5">Status</th>
+                            <th className="px-10 py-5 font-inter text-[15px] font-light text-[#000000]">Card Details</th>
+                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Plastic ID</th>
+                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Card Type</th>
+                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Address</th>
+                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Status</th>
                         </tr>
                     </thead>
 

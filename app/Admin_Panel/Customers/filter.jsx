@@ -38,6 +38,7 @@ export default function filter_section(props) {
 
     function Handle_Filter_button(button_name, index) {
         set_active_button_index(index);
+        props.set_active_button(index)
         set_active_button(button_name);
 
     }

@@ -12,6 +12,8 @@ import { Inter } from "next/font/google";
 import Image from "next/image"
 import menu_icon from "../../public/menu.png"
 import "../globals.css"
+import vantage_logo_for_header from "@/public/vantage_logo_small_screen.png"
+import dark_mode_button_black from "@/public//wb_sunny.png"
 
 
 const inter = Inter({
@@ -63,14 +65,14 @@ function Header(props) {
             </div>
 
             <header className="bg-white sticky top-0 z-200 shadow-md rounded-[10px] w-full pl-9 pr-2 py-4 flex justify-between items-center">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 ">
 
 
                     <div onClick={Handle_sidebar} className="max-[1200px]:block cursor-pointer hidden">
                         <img className="" src={menu_icon.src} alt="" />
                     </div>
 
-                    <h1 className="text-[#223933] font-inter font-semibold text-[20px]">{
+                    <h1 className="text-[#223933] max-[805px]:hidden font-inter font-semibold text-[20px]">{
                         props.pageName === "Fund_Request"
                             ? "Fund Request"
                             : props.pageName === "CardRequest/Card_Details"
@@ -79,8 +81,16 @@ function Header(props) {
                     }</h1>
                 </div>
 
-                <div className="user_info flex gap-2">
-                    <div onClick={Handle_View_As_Dropdown} className="relative view_as bg-[#EBF9EB] cursor-pointer rounded-[40px] w-78.5 flex justify-between items-center px-4 py-3">
+                <div className="vantage_logo_small_screen hidden m max-[805px]:block">
+                    <Image src={vantage_logo_for_header} alt="" />
+                </div>
+
+                <div className="user_info flex gap-2 items-center">
+
+                    <div className="dark_modeBTN pr-2 cursor-pointer">
+                        <Image src={dark_mode_button_black} alt="" />
+                    </div>
+                    <div onClick={Handle_View_As_Dropdown} className="relative max-[805px]:hidden view_as bg-[#EBF9EB] cursor-pointer rounded-[40px] w-78.5 flex justify-between items-center px-4 py-3">
                         <div onClick={() => props.set_admin_view(true)} className={` flex gap-2 items-center`}>
                             <Image src={user_circle} alt="" />
 
@@ -97,14 +107,18 @@ function Header(props) {
                         </div>
                     </div>
 
+
+
                     <div className="flex items-center gap-2 pr-10">
+
+
                         <div>
                             <Image src={user_profile_picture} alt="" />
                         </div>
-                        <p className="font-inter font-medium text-[14px] text-[#223933]">Admin Profile</p>
+                        <p className="font-inter font-medium text-[14px] max-[805px]:hidden text-[#223933]">Admin Profile</p>
                     </div>
 
-                    <div className="notification_icon pr-2">
+                    <div className="notification_icon pr-2 max-[805px]:hidden">
                         <Image src={header_notification_icon} alt="Hi" />
                     </div>
                 </div>

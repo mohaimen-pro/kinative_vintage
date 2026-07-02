@@ -1,12 +1,8 @@
+
 import customer_details_icon from "../../../public/customer_details_icon.png"
 
 
-export default function Customer_details({ customers }) {
-
-
-   
-
-
+export default function Fund_Request_List({filtered_fund_requests}) {
 
 
     const badgeStyle = {
@@ -28,21 +24,18 @@ export default function Customer_details({ customers }) {
     };
 
 
-
     return (
         <>
-          
-
             <div className="table-wrapper w-full overflow-x-auto rounded-[10px]">
                 <table className="min-w-[1200px] min-[1700px]:w-full">
                     {/* Header */}
                     <thead className="">
                         <tr className="text-left font-inter text-[15px] font-light text-[#000000]">
                             <th className="px-10 py-5 font-inter text-[15px] font-light text-[#000000]">Customer</th>
-                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Date of Birth </th>
-                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Email</th>
-                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Mobile</th>
-                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Type</th>
+                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Request Date </th>
+                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Card</th>
+                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Card Type</th>
+                            <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Amount</th>
                             <th className="px-6 py-5 font-inter text-[15px] font-light text-[#000000]">Status</th>
                         </tr>
                     </thead>
@@ -50,8 +43,8 @@ export default function Customer_details({ customers }) {
                     {/* Body */}
                     <tbody className="bg-white">
                         {
-                            customers.length > 0 ? (
-                                customers.map((card) => (
+                            filtered_fund_requests.length > 0 ? (
+                                filtered_fund_requests.map((card) => (
                                     <tr
                                         key={card.id}
                                         className="border-b border-[#f0f0f0] last:border-b-0 hover:bg-gray-50 transition"
@@ -118,10 +111,10 @@ export default function Customer_details({ customers }) {
                                             </span>
                                         </td>
 
-                                        <td className="px-6">
+                                        {/* <td className="px-6">
 
                                             <img src={customer_details_icon.src} alt="" />
-                                        </td>
+                                        </td> */}
                                     </tr>
                                 ))
                             ) : (
@@ -136,5 +129,6 @@ export default function Customer_details({ customers }) {
                 </table>
             </div>
         </>
+
     )
 }

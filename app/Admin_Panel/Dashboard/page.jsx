@@ -15,13 +15,17 @@ import error_icon from "@/public/error_outline.png"
 
 import credit_card_wallet from "@/public/credit_card_walled.png"
 import Image from "next/image";
+import { Users } from "lucide-react";
+
+
+
 
 export default function Dashboard() {
     //dynamic card
     const cards_info = [
         {
             id: 1,
-            card_image: user_circle_yellow,
+            card_image_icon: "Users",
             card_label: "Total Customers",
             card_info_number: 121,
             show_view_all: true,
@@ -30,7 +34,7 @@ export default function Dashboard() {
 
         {
             id: 2,
-            card_image: error_icon,
+            card_image_icon: "CircleAlert",
             card_label: "Pending Customers",
             card_info_number: 42,
             show_view_all: true,
@@ -39,7 +43,7 @@ export default function Dashboard() {
 
         {
             id: 3,
-            card_image: user_circle_yellow,
+            card_image_icon: "DollarSign",
             card_label: "Active Balance",
             card_info_number: "$12,400",
             show_view_all: true,
@@ -48,7 +52,7 @@ export default function Dashboard() {
 
         {
             id: 4,
-            card_image: user_circle_yellow,
+            card_image_icon: "CreditCard",
             card_label: "Total Card Activated",
             card_info_number: 200,
             show_view_all: true,
