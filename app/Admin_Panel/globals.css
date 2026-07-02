@@ -9,15 +9,14 @@
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-lato: "Lato", sans-serif;
-  --breakpoint-lgmd: 75rem;
-  /* 1200px */
-  --breakpoint-exmd: 100rem;
-  /* 1600px */
 }
 
-
-
-
+/* Custom Utility */
+/* @utility lgmd\:block {
+  @media (max-width: 1000px) {
+    display: block;
+  }
+} */
 
 /* Global Styles */
 * {
