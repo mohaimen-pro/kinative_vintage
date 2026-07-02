@@ -15,7 +15,7 @@ export default function Customers() {
     const cards_info = [
         {
             id: 1,
-            card_image: user_circle_yellow,
+            card_image_icon: "Users",
             card_label: "Total Customers",
             card_info_number: 121,
             show_view_all: false,
@@ -23,7 +23,7 @@ export default function Customers() {
 
         {
             id: 2,
-            card_image: confirmation_icon_circle,
+            card_image_icon: "CircleCheck",
             card_label: "Active Customers",
             card_info_number: 42,
             show_view_all: false,
@@ -33,7 +33,7 @@ export default function Customers() {
 
         {
             id: 3,
-            card_image: confirmation_icon_circle,
+            card_image_icon: "Users",
             card_label: "Pending Customers",
             card_info_number: "$12,400",
             show_view_all: false,
@@ -43,7 +43,7 @@ export default function Customers() {
 
         {
             id: 4,
-            card_image: user_circle_yellow,
+            card_image_icon: "Ban",
             card_label: "Suspended",
             card_info_number: 20,
             show_view_all: false,

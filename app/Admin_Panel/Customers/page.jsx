@@ -145,14 +145,14 @@ export default function Customers() {
                             <div key={card_info.id} className=" card-one group relative flex flex-col pl-4 pt-4 bg-white rounded-[10px] overflow-hidden">
 
                                 <div className={`${card_info.show_view_all ? "pb-15" : "pb-8"} card_info relative z-100 flex gap-4 items-center `}>
-                                    <div className="user_profile bg-[#FFF5D9] group-hover:bg-[#EBF9EB] rounded-full w-14 h-14 flex justify-center items-center">
+                                    <div className={` user_profile bg-[#FFF5D9] group-hover:bg-[#EBF9EB] rounded-full w-14 h-14 flex justify-center items-center`}>
                                         {/* <Image src={card_info.card_image} alt="" /> */}
                                         <Icon alt="" className={`group-hover:text-[#628343] text-[#FFBB38] w-[28px] h-[28px]`} />
                                     </div>
 
                                     <div className="total_customer_info">
-                                        <p className="font-inter font-bold text-[26px] group-hover:text-white text-[#232323]">{card_info.card_info_number}</p>
-                                        <p className="font-normal text-[15px] group-hover:text-white text-[#5B8B7E]">{card_info.card_label}</p>
+                                        <p className={`${index === active_button_filter_index ? "text-white" : ""} font-inter font-bold text-[26px] group-hover:text-white text-[#232323]`}>{card_info.card_info_number}</p>
+                                        <p className={`${index === active_button_filter_index ? "text-white" : ""} font-normal text-[15px] group-hover:text-white text-[#5B8B7E]`}>{card_info.card_label}</p>
                                     </div>
                                 </div>
 
@@ -170,7 +170,7 @@ export default function Customers() {
 
 
                                 {/* Hover background */}
-                                <div className="absolute z-10 inset-0 rounded-xl bg-gradient-to-br from-[#223933] to-[#9ec74b] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className={`${index === active_button_filter_index ? "opacity-100" : ""} absolute z-10 inset-0 rounded-xl bg-gradient-to-br from-[#223933] to-[#9ec74b] opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
 
                             </div>
                         )
