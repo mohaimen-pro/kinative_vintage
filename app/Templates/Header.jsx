@@ -5,7 +5,7 @@ import down_arrow from "@/public/down_arrow.png"
 import user_profile_picture from "@/public/user_profile.png"
 import header_notification_icon from "@/public/header_notification_icon.png";
 import { useState } from "react"
-import { UsersRound } from 'lucide-react';
+import { UsersRound , Search } from 'lucide-react';
 import eye_icon from "@/public/eye_icon.png"
 import return_icon from "@/public/return_icon.png"
 import { Inter } from "next/font/google";
@@ -47,7 +47,7 @@ function Header(props) {
         <>
 
 
-            <div className={`${isAdminView ? "hidden" : "notification_view_as bg-[#FFEAAF] rounded-[10px] px-2 py-3 flex justify-between items-center mb-3"} `}>
+            <div className={`${isAdminView || props.isCustomer ? "hidden" : "notification_view_as bg-[#FFEAAF] rounded-[10px] px-2 py-3 flex justify-between items-center mb-3"} `}>
                 <div className="flex items-center gap-2">
                     <div className="eye_icon w-[40px] h-[40px] rounded-full flex justify-center items-center bg-[#FFF5D9]">
                         <Image src={eye_icon} alt="" />
@@ -90,31 +90,65 @@ function Header(props) {
                     <div className="dark_modeBTN pr-2 cursor-pointer">
                         <Image src={dark_mode_button_black} alt="" />
                     </div>
-                    <div onClick={Handle_View_As_Dropdown} className="relative max-[805px]:hidden view_as bg-[#EBF9EB] cursor-pointer rounded-[40px] w-78.5 flex justify-between items-center px-4 py-3">
-                        <div onClick={() => props.set_admin_view(true)} className={` flex gap-2 items-center`}>
-                            <Image src={user_circle} alt="" />
+                    {
+                        props.isCustomer ? (
+                            <div className="customers flex items-center gap-2 ">
+                                <div className="button">
+                                    <div className="return_button bg-[#223933] rounded-[100px] px-4 py-3 flex items-center gap-2 cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A1CC53" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-plus" aria-hidden="true" alt="">
+                                            <path d="M5 12h14"></path><path d="M12 5v14"></path></svg><button className="font-medium text-[14px] font-inter text-white cursor-pointer">Add New Customer</button>
+                                    </div>
+                                </div>
 
-                            <p className="font-inter text-[14px] font-normal text-[#5F887D]">{`${isAdminView ? "View As Admin" : "View As Customer"}`}</p>
-                        </div>
-                        <div>
-                            <img src={down_arrow} alt="" />
-                        </div>
-                        <div onClick={Handle_View_As_Role} className={`${is_view_as_dropdown_open ? "flex" : "hidden"} absolute z-100 -bottom-13 left-0 right-0  bg-[#EBF9EB]  items-center gap-2 cursor-pointer rounded-[40px] w-78.5 px-4 py-3`}>
-                            <div>
-                                <UsersRound color="green" />
+                                <div className="search flex items-center gap-2 px-4 py-3 rounded-[100px] border-1 border-[#EBF9EB]">
+                                    <Search className="w-5 h-5 text-[#B7E658]"/>
+                                    <input  placeholder="Search..." className="font-normal text-[14px] font-inter text-[#5F887D]" />
+                                </div>
                             </div>
-                            <p className="font-inter text-[14px] font-normal text-[#5F887D]">{`${isAdminView ? "View As Customer" : "View As Admin"}`}</p>
-                        </div>
-                    </div>
+                        ) :
+                            (
+                                <div onClick={Handle_View_As_Dropdown} className="relative max-[805px]:hidden view_as bg-[#EBF9EB] cursor-pointer rounded-[40px] w-78.5 flex justify-between items-center px-4 py-3">
+                                    <div onClick={() => props.set_admin_view(true)} className={` flex gap-2 items-center`}>
+                                        <Image src={user_circle} alt="" />
+
+                                        <p className="font-inter text-[14px] font-normal text-[#5F887D]">{`${isAdminView ? "View As Admin" : "View As Customer"}`}</p>
+                                    </div>
+                                    <div>
+                                        <img src={down_arrow} alt="" />
+                                    </div>
+                                    <div onClick={Handle_View_As_Role} className={`${is_view_as_dropdown_open ? "flex" : "hidden"} absolute z-100 -bottom-13 left-0 right-0  bg-[#EBF9EB]  items-center gap-2 cursor-pointer rounded-[40px] w-78.5 px-4 py-3`}>
+                                        <div>
+                                            <UsersRound color="green" />
+                                        </div>
+                                        <p className="font-inter text-[14px] font-normal text-[#5F887D]">{`${isAdminView ? "View As Customer" : "View As Admin"}`}</p>
+                                    </div>
+                                </div>
+                            )
+                    }
+
+
+
 
 
 
                     <div className="flex items-center gap-2 pr-10">
 
+                        {
+                            props.isCustomer ? (
+                                <div className="text-[16px] font-inter font-semibold text-[#223933] bg-[#EBF9EB] rounded-full w-12.5 h-12.5 flex justify-center items-center">
+                                    MD
+                                </div>
+                            ) : (
 
-                        <div>
-                            <Image src={user_profile_picture} alt="" />
-                        </div>
+
+                                <div>
+                                    <Image src={user_profile_picture} alt="" />
+                                </div>
+                            )
+                        }
+
+
+
                         <p className="font-inter font-medium text-[14px] max-[805px]:hidden text-[#223933]">Admin Profile</p>
                     </div>
 

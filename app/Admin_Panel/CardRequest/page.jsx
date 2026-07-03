@@ -17,6 +17,8 @@ export default function Customers() {
             id: 1,
             card_image_icon: "Users",
             card_label: "Total Customers",
+            card_icon_bg: "",
+            card_icon_color: "",
             card_info_number: 121,
             show_view_all: false,
         },
@@ -25,6 +27,8 @@ export default function Customers() {
             id: 2,
             card_image_icon: "CircleCheck",
             card_label: "Active Customers",
+            card_icon_bg: "",
+            card_icon_color: "",
             card_info_number: 42,
             show_view_all: false,
 
@@ -35,6 +39,8 @@ export default function Customers() {
             id: 3,
             card_image_icon: "Users",
             card_label: "Pending Customers",
+            card_icon_bg: "",
+            card_icon_color: "",
             card_info_number: "$12,400",
             show_view_all: false,
 
@@ -45,6 +51,8 @@ export default function Customers() {
             id: 4,
             card_image_icon: "Ban",
             card_label: "Suspended",
+            card_icon_bg: "",
+            card_icon_color: "",
             card_info_number: 20,
             show_view_all: false,
 

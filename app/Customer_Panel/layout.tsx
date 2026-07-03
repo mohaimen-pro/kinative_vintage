@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./Templates/Header"
-import Sidebar from "./Templates/sidebar"
-
+import CustomerLayout from "./Customer_Layout"
 
 import { Inter, Lato } from "next/font/google";
 
@@ -31,22 +29,11 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html
-      lang="en"
-      className={``}
-    >
-      <body className={`${inter.variable} ${lato.variable} p-0 m-0 overflow-hidden bg-[#F7F7F7]`}>
-        <section className=" flex">
-          
 
-          <div className=" mt-1.5 mr-2 flex-10  min-h-screen lg:h-screen overflow-auto">
-
-            {children}
-
-          </div>
-        </section>
-
-      </body>
-    </html>
+    <CustomerLayout>
+      {children}
+    </CustomerLayout>
   );
+       
+  
 }

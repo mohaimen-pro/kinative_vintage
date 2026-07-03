@@ -145,9 +145,8 @@ export default function Customers() {
                             <div key={card_info.id} className=" card-one group relative flex flex-col pl-4 pt-4 bg-white rounded-[10px] overflow-hidden">
 
                                 <div className={`${card_info.show_view_all ? "pb-15" : "pb-8"} card_info relative z-100 flex gap-4 items-center `}>
-                                    <div className={` user_profile bg-[#FFF5D9] group-hover:bg-[#EBF9EB] rounded-full w-14 h-14 flex justify-center items-center`}>
-                                        {/* <Image src={card_info.card_image} alt="" /> */}
-                                        <Icon alt="" className={`group-hover:text-[#628343] text-[#FFBB38] w-[28px] h-[28px]`} />
+                                    <div className={`${index === active_button_filter_index ? "bg-[#EBF9EB]" : "bg-[#FFF5D9] group-hover:bg-[#EBF9EB]"} user_profile  rounded-full w-14 h-14 flex justify-center items-center`}>
+                                        <Icon alt="" className={`${index === active_button_filter_index ? "text-[#628343]" : " group-hover:text-[#628343] text-[#FFBB38]"}  w-[28px] h-[28px]`} />
                                     </div>
 
                                     <div className="total_customer_info">

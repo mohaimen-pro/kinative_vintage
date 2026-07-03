@@ -212,11 +212,11 @@ export default function Fund_Filter({ fund_requests }) {
                 </div>
             </div>
             <div className="filter_section bg-white pt-8">
-                <div className="filter_btn pb-4 px-6 min-[581px]flex max-[580px]:grid max-[580px]:grid-cols-2 items-center gap-2">
+                <div className="filter_btn pb-4 px-6 min-[581px]flex max-[580px]:grid max-[580px]:grid-cols-2 items-center">
                     {
                         filter_buttons.map((button_info, index) => {
                             return (
-                                <button onClick={() => Handle_Filter_button(button_info.filter_type, index)} key={button_info.id} className={`${active_button_index_filter === index ? "bg-black text-white" : "bg-[#EBF9EB] hover:bg-amber-50 text-[#27463E]"}   rounded-[100px] px-10 py-2   transition font-inter text-[13px] font-medium`}>{button_info.filter_type}</button>
+                                <button onClick={() => Handle_Filter_button(button_info.filter_type, index)} key={button_info.id} className={`${active_button_index_filter === index ? "bg-black text-white" : "bg-[#EBF9EB] hover:bg-amber-50 text-[#27463E]"}  mx-1  rounded-[100px] px-10 py-2   transition font-inter text-[13px] font-medium`}>{button_info.filter_type}</button>
                             )
                         })
                     }

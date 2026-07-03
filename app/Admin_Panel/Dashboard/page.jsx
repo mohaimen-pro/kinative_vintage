@@ -26,6 +26,8 @@ export default function Dashboard() {
         {
             id: 1,
             card_image_icon: "Users",
+            card_icon_bg: "",
+            card_icon_color: "",
             card_label: "Total Customers",
             card_info_number: 121,
             show_view_all: true,
@@ -35,6 +37,8 @@ export default function Dashboard() {
         {
             id: 2,
             card_image_icon: "CircleAlert",
+            card_icon_bg: "",
+            card_icon_color: "",
             card_label: "Pending Customers",
             card_info_number: 42,
             show_view_all: true,
@@ -44,6 +48,8 @@ export default function Dashboard() {
         {
             id: 3,
             card_image_icon: "DollarSign",
+            card_icon_bg: "",
+            card_icon_color: "",
             card_label: "Active Balance",
             card_info_number: "$12,400",
             show_view_all: true,
@@ -53,6 +59,8 @@ export default function Dashboard() {
         {
             id: 4,
             card_image_icon: "CreditCard",
+            card_icon_bg: "",
+            card_icon_color: "",
             card_label: "Total Card Activated",
             card_info_number: 200,
             show_view_all: true,

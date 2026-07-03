@@ -10,7 +10,8 @@ import {
     CreditCard,
     CircleAlert,
     CircleCheck,
-    Ban
+    Ban,
+    WalletCards 
 } from "lucide-react";
 
 
@@ -25,7 +26,8 @@ function Cards(props) {
         CreditCard,
         CircleAlert,
         CircleCheck,
-        Ban
+        Ban,
+        WalletCards 
     };
 
     return (
@@ -38,9 +40,9 @@ function Cards(props) {
                             <div key={card_info.id} className=" card-one group relative flex flex-col pl-4 pt-4 bg-white rounded-[10px] overflow-hidden">
 
                                 <div className={`${card_info.show_view_all ? "pb-15" : "pb-8"} card_info relative z-100 flex gap-4 items-center `}>
-                                    <div className="user_profile bg-[#FFF5D9] group-hover:bg-[#EBF9EB] rounded-full w-13.75 h-13.75 flex justify-center items-center">
+                                    <div className={`user_profile ${card_info.card_icon_bg !== "" ? card_info.card_icon_bg : "bg-[#FFF5D9]" }  group-hover:bg-[#EBF9EB] rounded-full w-15 h-15 flex justify-center items-center`}>
                                         {/* <Image src={card_info.card_image} alt="" /> */}
-                                        <Icon alt="" className={`group-hover:text-[#628343] text-[#FFBB38] w-[28px] h-[28px]`} />
+                                        <Icon alt="" className={` ${card_info.card_icon_color !== "" ? card_info.card_icon_color : "text-[#FFBB38]" } card_icon_color group-hover:text-[#628343]  w-[28px] h-[28px]`} />
                                     </div>
 
                                     <div className="total_customer_info">

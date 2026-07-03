@@ -5,14 +5,12 @@ import log_out_icon from "@/public/log_out_icon.png";
 import Link from "next/link";
 import right_arrow_icon from "@/public/right_arrow_icon.png";
 import point_icon from "@/public/point_icon.png";
-import user_head_icon from "@/public/user-head.png";
 import activity_log_icon from "@/public/notification_icon.png";
 import Analytics_page_icon from "@/public/insert_chart_outlined.png";
 import credit_card from "@/public/credit_card.png";
 import "../globals.css";
 import { Inter } from "next/font/google";
-import home_icon from "@/public/home_icon.png"
-import { CreditCard, ChartColumnIncreasing } from 'lucide-react';
+import { CreditCard, ChartColumnIncreasing, User, House, CircleDollarSign } from 'lucide-react';
 
 
 
@@ -23,7 +21,6 @@ const inter = Inter({
 
 
 
-import { House, User } from 'lucide-react';
 import Image from "next/image";
 
 
@@ -56,7 +53,8 @@ function Sidebar(props) { //props
                     }
         min-[1200px]:translate-x-0
         min-[1200px]:static
-        min-[1200px]:m-1.5
+        min-[1200px]:ml-1.5
+        min-[1200px]:mt-1.5
         min-[1200px]:rounded-[10px]`}
             >
                 <div className="content px-6 py-8">
@@ -151,9 +149,9 @@ function Sidebar(props) { //props
                                     <div className={`${props.pageName === "Fund_Request" ? 'bg-[#27463E] rounded-[100px]' : ""} flex cursor-pointer justify-between items-center px-7 py-3`}>
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                               
-                                                    <ChartColumnIncreasing color={`${props.pageName === "Fund_Request" ? "#B8E659" : "white"}`} width="25px" height="25px" />
-                                               
+
+                                                <ChartColumnIncreasing color={`${props.pageName === "Fund_Request" ? "#B8E659" : "white"}`} width="25px" height="25px" />
+
                                             </div>
 
                                             <h1 className={`${inter.className} ${inter.className} ${props.pageName === "Fund_Request" ? "text-[#B8E659]" : "text-white"} font-normal text-[16px] `}>
@@ -196,15 +194,11 @@ function Sidebar(props) { //props
                             </>
                         ) : (
                             <>
-                                <Link href={"/Admin_Panel/Dashboard"}>
-                                    <div className="flex cursor-pointer justify-between items-center px-7 py-3">
+                                <Link href={"/Customer_Panel/Dashboard"}>
+                                    <div className={`${props.pageName === "Dashboard" ? 'bg-[#27463E] rounded-[100px]' : ""} flex cursor-pointer justify-between items-center px-7 py-3`}>
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                                {props.pageName === "Dashboard" ? (
-                                                    <Image src={home_icon} alt="Home" />
-                                                ) : (
-                                                    <House color="white" width="20.83px" height="17.71px" />
-                                                )}
+                                                <House color={`${props.pageName === "Dashboard" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
 
                                             <h1
@@ -224,11 +218,7 @@ function Sidebar(props) { //props
                                     <div className="flex cursor-pointer justify-between items-center px-7 py-3">
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                                {props.pageName === "Customers" ? (
-                                                    <User width="21px" height="18px" color="#B8E659" />
-                                                ) : (
-                                                    <Image src={user_head_icon} alt="" />
-                                                )}
+                                                <User color={`${props.pageName === "My Card" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
 
                                             <h1
@@ -262,7 +252,7 @@ function Sidebar(props) { //props
                                     <div className="flex cursor-pointer justify-between items-center px-7 py-3">
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                                <Image src={credit_card} alt="" />
+                                                <CircleDollarSign color={`${props.pageName === "Transaction" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
 
                                             <h1 className={`${inter.className} font-normal text-[16px] text-white`}>
