@@ -91,15 +91,15 @@ export default function Dashboard() {
                         </div>
 
                         <div className="flex flex-col gap-2 items-center ">
-                            <div className="w-12.5 h-12.5 bg-[#EBF9EB] flex justify-center items-center rounded-full ">
-                                <CircleDollarSign color="#9DCF38" />
+                            <div className="w-12.5 h-12.5 bg-[#D9F1FF] flex justify-center items-center rounded-full ">
+                                <Snowflake color="#3ea7db" />
                             </div>
                             <p className="text-[#223933] font-lato font-semibold text-[15px]">Fund Request</p>
                         </div>
 
                         <div className="flex flex-col gap-2 items-center">
-                            <div className="w-12.5 h-12.5 bg-[#EBF9EB] flex justify-center items-center rounded-full ">
-                                <CircleDollarSign color="#9DCF38" />
+                            <div className="w-12.5 h-12.5 bg-[#FFDCD9] flex justify-center items-center rounded-full ">
+                                <Ban color="#F6857B" />
                             </div>
                             <p className="text-[#223933] font-lato font-semibold text-[15px]">Fund Request</p>
                         </div>
