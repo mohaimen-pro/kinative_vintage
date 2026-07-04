@@ -77,7 +77,9 @@ function Header(props) {
                             ? "Fund Request"
                             : props.pageName === "CardRequest/Card_Details"
                                 ? "Card Details"
-                                : props.pageName
+                                : props.pageName === "My_Cards/Card_Details"
+                                ? "Card Details"
+                                : props.pageName.replaceAll("_"," ")
                     }</h1>
                 </div>
 
@@ -92,7 +94,7 @@ function Header(props) {
                     </div>
                     {
                         props.isCustomer ? (
-                            <div className="customers flex items-center gap-2 ">
+                            <div className="customers flex max-[950px]:hidden items-center gap-2 ">
                                 <div className="button">
                                     <div className="return_button bg-[#223933] rounded-[100px] px-4 py-3 flex items-center gap-2 cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A1CC53" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-plus" aria-hidden="true" alt="">

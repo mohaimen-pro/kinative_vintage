@@ -52,7 +52,7 @@ export default function credit_card_slide() {
     return (
         <div className="credit_card ">
             <div className="carousel_upper_part flex items-center mt-5">
-                <div onClick={prevSlide} className="left_arrow cursor-pointer">
+                <div  className="left_arrow cursor-pointer">
                     <ArrowLeft color="black" className="w-3 h-3" />
                 </div>
                 <div
@@ -117,7 +117,7 @@ export default function credit_card_slide() {
                         </div>
                     </div>
                 </div>
-                <div onClick={nextSlide} className="right_arrow cursor-pointer">
+                <div className="right_arrow cursor-pointer">
                     <ArrowRight color="black" className="w-3 h-3" />
                 </div>
             </div>

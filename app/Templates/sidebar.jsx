@@ -214,15 +214,15 @@ function Sidebar(props) { //props
                                     </div>
                                 </Link>
 
-                                <Link href={"/Admin_Panel/Customers"}>
+                                <Link href={"/Customer_Panel/My_Cards"}>
                                     <div className="flex cursor-pointer justify-between items-center px-7 py-3">
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                                <User color={`${props.pageName === "My Card" ? "#B8E659" : "white"}`} width="25px" height="25px" />
+                                                <User color={`${props.pageName === "My_Cards" || props.pageName === "My_Cards/Card_Details" ? "#B8E659" : props.pageName === "Add_New_card" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
 
                                             <h1
-                                                className={`${inter.className} ${props.pageName === "Customers" ? "text-[#B8E659]" : "text-white"} font-normal text-[16px] font-inter`}
+                                                className={`${inter.className} ${props.pageName === "My_Cards" || props.pageName === "My_Cards/Card_Details" ? "text-[#B8E659]" : props.pageName === "Add_New_card" ? "text-[#BBE659]" : "text-white"} font-normal text-[16px] font-inter`}
                                             >
                                                 My Cards
                                             </h1>
