@@ -5,7 +5,7 @@ import down_arrow from "@/public/down_arrow.png"
 import user_profile_picture from "@/public/user_profile.png"
 import header_notification_icon from "@/public/header_notification_icon.png";
 import { useState } from "react"
-import { UsersRound , Search } from 'lucide-react';
+import { UsersRound, Search } from 'lucide-react';
 import eye_icon from "@/public/eye_icon.png"
 import return_icon from "@/public/return_icon.png"
 import { Inter } from "next/font/google";
@@ -14,6 +14,7 @@ import menu_icon from "../../public/menu.png"
 import "../globals.css"
 import vantage_logo_for_header from "@/public/vantage_logo_small_screen.png"
 import dark_mode_button_black from "@/public//wb_sunny.png"
+import Link from "next/link";
 
 
 const inter = Inter({
@@ -78,16 +79,18 @@ function Header(props) {
                             : props.pageName === "CardRequest/Card_Details"
                                 ? "Card Details"
                                 : props.pageName === "My_Cards/Card_Details"
-                                ? "Card Details"
-                                 : props.pageName === "My_Request"
-                                ? "My Request"
-                                : (props.pageName ?? "").replaceAll("_"," ")  
+                                    ? "Card Details"
+                                    : props.pageName === "My_Request"
+                                        ? "My Request"
+                                        : (props.pageName ?? "").replaceAll("_", " ")
                     }</h1>
                 </div>
 
-                <div className="vantage_logo_small_screen hidden m max-[805px]:block">
-                    <Image src={vantage_logo_for_header} alt="" />
-                </div>
+                <Link href="/Customer_Panel/Dashboard">
+                    <div className="vantage_logo_small_screen hidden m max-[805px]:block">
+                        <Image src={vantage_logo_for_header} alt="" />
+                    </div>
+                </Link>
 
                 <div className="user_info flex gap-2 items-center">
 
@@ -105,8 +108,8 @@ function Header(props) {
                                 </div>
 
                                 <div className="search flex items-center gap-2 px-4 py-3 rounded-[100px] border-1 border-[#EBF9EB]">
-                                    <Search className="w-5 h-5 text-[#B7E658]"/>
-                                    <input  placeholder="Search..." className="font-normal text-[14px] font-inter text-[#5F887D]" />
+                                    <Search className="w-5 h-5 text-[#B7E658]" />
+                                    <input placeholder="Search..." className="font-normal text-[14px] font-inter text-[#5F887D]" />
                                 </div>
                             </div>
                         ) :

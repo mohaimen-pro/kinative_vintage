@@ -69,7 +69,7 @@ export default function Dashboard() {
 
 
     return (
-        <main className="max-[700px]:mx-3 max-[700px]:mt-4">
+        <main className="max-[700px]:mx-2 max-[700px]:ml-3 max-[700px]:mt-4">
 
             <Cards cards_info={cards_info} />
             <Graph_section />
@@ -122,7 +122,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="bg-white rounded-[10px] max-[700px]:overflow-x-auto max-[700px]:flex-0 flex-1 max-[1050px]:flex-2 pl-8 pt-3">
-                    <div className="">
+                    <div className="min-w-120">
                         <div className="head flex justify-between items-center ">
                             <div>
                                 <h2 className="font-inter font-semibold text-[18px] text-black">Notification</h2>

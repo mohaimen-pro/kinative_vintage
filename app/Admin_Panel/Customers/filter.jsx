@@ -64,7 +64,7 @@ export default function filter_section(props) {
         <>
             <div className="filter_section bg-white mt-2">
                 <div className="px-6 max-[500px]:px-2  pt-8 flex items-center justify-between pb-6">
-                    <div className="flex items-center  gap-4">
+                    <div className="flex items-center max-[420px]:flex-col max-[420px]:items-start  gap-4">
                         <h1 className="font-inter text-[#223933] font-semibold text-[18px]">Customer List</h1>
                         <div className="search flex max-[660px]:hidden  border border-[#BDD7BD] rounded-[40px] w-[314px] px-6 py-3 items-start gap-4">
                             <img src={search_icon.src} alt="" />
@@ -95,11 +95,11 @@ export default function filter_section(props) {
 
                 <div className="hidden max-[660px]:grid max-[660px]:grid-cols-2 w-full gap-2 px-6 pb-6">
                     {/* Search */}
-                    <div className="search w-full flex items-center gap-4 border border-[#BDD7BD] rounded-[40px] px-6 py-3 min-w-0">
+                    <div className="search w-full flex items-center gap-4 max-[420px]:gap-2 border border-[#BDD7BD] rounded-[40px] max-[500px]:px-4 max-[500px]:py-2  px-6 py-3 min-w-0">
                         <img src={search_icon.src} alt="" />
                         <input
                             onChange={(e) => set_customer_seach(e.target.value)}
-                            className="w-full min-w-0 placeholder:text-[#5F887D] font-normal font-inter text-[14px] max-[500px]:text-[11px] outline-none"
+                            className="w-full min-w-0 placeholder:text-[#5F887D] font-normal font-inter text-[14px] max-[500px]:text-[11px] max-[420px]:text-[11px] outline-none"
                             type="text"
                             placeholder="Search Customer"
                         />
@@ -107,11 +107,11 @@ export default function filter_section(props) {
 
                     {/* Button */}
                     <div className="w-full">
-                        <div className="w-full bg-[#223933] rounded-[100px] px-4 py-3 flex justify-center items-center gap-2 cursor-pointer">
+                        <div className="w-full bg-[#223933] rounded-[100px] px-4 max-[500px]:px-4 max-[500px]:py-2 py-3 flex justify-center items-center gap-2 cursor-pointer">
                             <div>
                                 <Plus color="#A1CC53" />
                             </div>
-                            <button className="w-full text-center font-medium text-[14px] max-[500px]:text-[11px] font-inter text-white cursor-pointer">
+                            <button className="w-full text-center font-medium text-[14px] max-[500px]:text-[11px] max-[420px]:text-[10px] font-inter text-white cursor-pointer">
                                 Add New Customer
                             </button>
                         </div>

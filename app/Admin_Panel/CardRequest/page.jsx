@@ -109,10 +109,12 @@ export default function Customers() {
 
     return (
         <>
-            <Cards cards_info={cards_info} />
+            <main className="max-[500px]:mx-3">
+                <Cards cards_info={cards_info} />
+            </main>
 
 
-            <Filters_section cardrequests={table_info} />
+                <Filters_section cardrequests={table_info} />
 
 
         </>
