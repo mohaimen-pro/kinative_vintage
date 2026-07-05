@@ -31,6 +31,9 @@ import amazon_logo from "../../../public/apple_logo.png"
 import bar_chart_green from "../../../public/bar_chart_green.png"
 import format_list_bulleted_black from "../../../public/format_list_bulleted_black.png"
 import { div, img } from "motion/react-client";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+
 
 
 
@@ -187,83 +190,100 @@ export default function Graph_Pagination_section() {
 
 
     return (
-        <div className="graph_section flex gap-4  pt-2">
+        <div className="graph_section flex max-[700px]:flex-col max-[700px]:justify-center gap-4 max  pt-2">
             <div className="graph outline-0 border-0 bg-white flex-3 rounded-[10px] px-8 pt-4">
-                <div className="graph_head pb-6 px-4 flex justify-between items-center">
-                    <div>
-                        <h2 className="font-inter font-semibold text-[18px] text-black">Transactions</h2>
-                    </div>
-                    <div className="sorting_section flex gap-2 items-center">
-                        <div onClick={() => set_show_graph(true)} className=" flex-1">
-                            <div className={`${show_graph ? "bg-[#9EC952]" : "bg-white"} w-[35px] h-[35px] flex justify-center items-center  rounded-[5px]`}>
-                                {show_graph ?
-                                    <img src={bar_charts_icon.src} alt="" />
-                                    : <img src={bar_chart_green.src} alt="" />
-                                }
-                            </div>
+                <div className="graph_head pb-6 flex flex-col">
+                    <div className=" pb-6 flex justify-between items-center">
+                        <div>
+                            <h2 className="font-inter font-semibold text-[18px] text-black">Transactions</h2>
                         </div>
-
-                        <div onClick={() => set_show_graph(false)} className=" flex-1">
-                            <div className={`${show_graph ? "bg-white" : "bg-[#B7E658]"} w-[35px] h-[35px] flex justify-center items-center border border-[1px] border-[#E5E5E5] rounded-[5px]`}>
-                                {show_graph ?
-                                    <img src={format_list_bulleted.src} alt="" />
-
-                                    : <img src={format_list_bulleted_black.src} alt="" />
-
-                                }
-
+                        <div className="sorting_section flex gap-2 items-center">
+                            <div onClick={() => set_show_graph(true)} className=" flex-1">
+                                <div className={`${show_graph ? "bg-[#9EC952]" : "bg-white"} w-[35px] h-[35px] flex justify-center items-center  rounded-[5px]`}>
+                                    {show_graph ?
+                                        <img src={bar_charts_icon.src} alt="" />
+                                        : <img src={bar_chart_green.src} alt="" />
+                                    }
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="graph_filter">
-                            <div className="relative">
-                                <div
-                                    onClick={() => setisOpenFilterGraph((prev) => !prev)}
-                                    className="week_sorting_dropdown flex gap-1 bg-[#F7F7F7] cursor-pointer rounded-[40px] justify-between items-center px-4 py-3"
-                                >
-                                    <div className="flex gap-2 items-center">
-                                        <p className="font-inter text-[13px] font-medium text-[#5F887D]">
-                                            {selected_filter.filter_name}
-                                        </p>
+                            <div onClick={() => set_show_graph(false)} className=" flex-1">
+                                <div className={`${show_graph ? "bg-white" : "bg-[#B7E658]"} w-[35px] h-[35px] flex justify-center items-center border border-[1px] border-[#E5E5E5] rounded-[5px]`}>
+                                    {show_graph ?
+                                        <img src={format_list_bulleted.src} alt="" />
+
+                                        : <img src={format_list_bulleted_black.src} alt="" />
+
+                                    }
+
+                                </div>
+                            </div>
+
+                            <div className="graph_filter">
+                                <div className="relative">
+                                    <div
+                                        onClick={() => setisOpenFilterGraph((prev) => !prev)}
+                                        className="week_sorting_dropdown flex gap-1 bg-[#F7F7F7] cursor-pointer rounded-[40px] justify-between items-center px-4 py-3"
+                                    >
+                                        <div className="flex gap-2 items-center">
+                                            <p className="font-inter text-[13px] font-medium text-[#5F887D]">
+                                                {selected_filter.filter_name}
+                                            </p>
+                                        </div>
+
+                                        <img src={down_arrow.src} alt="" />
                                     </div>
 
-                                    <img src={down_arrow.src} alt="" />
-                                </div>
+                                    {isOpenFilterGraph && (
+                                        <div className="absolute top-full left-0  z-200 mt-2 w-full bg-white rounded-2xl border border-gray-200 shadow-xl p-2 flex flex-col gap-1 ">
+                                            {graph_filter_array_ofObjects.map((filter) => (
+                                                <div
+                                                    onClick={() => {
+                                                        set_selected_filter(filter);
+                                                        setisOpenFilterGraph(false);
+                                                        set_graph_filter(filter.filter_name)
+                                                    }}
+                                                    key={filter.id}
+                                                    className="rounded-xl px-2 py-3 cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
+                                                >
+                                                    <div className="flex items-center">
+                                                        <p className="font-inter text-[12px] font-medium text-[#5F887D]">
+                                                            {filter.filter_name}
+                                                        </p>
 
-                                {isOpenFilterGraph && (
-                                    <div className="absolute top-full left-0 mt-2 w-full bg-white rounded-2xl border border-gray-200 shadow-xl p-2 flex flex-col gap-1 z-50">
-                                        {graph_filter_array_ofObjects.map((filter) => (
-                                            <div
-                                                onClick={() => {
-                                                    set_selected_filter(filter);
-                                                    setisOpenFilterGraph(false);
-                                                    set_graph_filter(filter.filter_name)
-                                                }}
-                                                key={filter.id}
-                                                className="flex w-full items-center  justify-between rounded-xl px-2 py-3 cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
-                                            >
-                                                <div className="flex items-center">
-                                                    <p className="font-inter text-[12px] font-medium text-[#5F887D]">
-                                                        {filter.filter_name}
-                                                    </p>
 
+                                                    </div>
 
                                                 </div>
 
-                                            </div>
-
-                                        ))}
-                                    </div>
-                                )}
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
 
-
-
                         </div>
-
-
                     </div>
+                    <div className="view_all">
+                        <Link href="/Customer_Panel/Transactions">
+                            <div className="flex view_all relative z-100 pr-4 pb-3 mt-auto ml-auto items-center gap-3">
+                                <p className="font-normal font-lato text-[13px] text-[#89BE1E] group-hover:text-white">
+                                    View All
+                                </p>
+
+                                <div
+                                    className="right_arrow w-9.75 h-9.75 bg-[#EBF9EB] rounded-full flex justify-center items-center"
+                                >
+                                    <ArrowRight />
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+
+
+
+
                 </div>
 
                 <div className={`${show_graph ? "block" : "hidden"} graph h-[350px] w-full outline-0`}>
@@ -343,8 +363,8 @@ export default function Graph_Pagination_section() {
 
                                 <div
                                     className={`font-inter flex flex-col justify-center ${transaction.type === "expense"
-                                            ? "text-[#FF6B6B]"
-                                            : "text-[#6E8D37]"
+                                        ? "text-[#FF6B6B]"
+                                        : "text-[#6E8D37]"
                                         }`}
                                 >
                                     <p className="font-bold text-[15px]">{transaction.amount}</p>

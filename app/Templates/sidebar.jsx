@@ -234,29 +234,37 @@ function Sidebar(props) { //props
                                     </div>
                                 </Link>
 
-                                <Link href={"/Card_Request"}>
+                                <Link href={"/Customer_Panel/Transactions"}>
                                     <div className="flex cursor-pointer justify-between items-center px-7 py-3">
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                                <Image src={credit_card} alt="" />
+                                                <CreditCard color={`${props.pageName === "Transactions"? "#B8E659" : props.pageName === "Add_New_card" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
-
-                                            <h1 className={`${inter.className} font-normal text-[16px] text-white`}>
-                                                Transactions
+                                        
+                                            <h1
+                                                className={`${inter.className} ${props.pageName === "Transactions" ? "text-[#B8E659]" : props.pageName === "Add_New_card" ? "text-[#BBE659]" : "text-white"} font-normal text-[16px] font-inter`}
+                                            >
+                                               Transactions
                                             </h1>
                                         </div>
                                     </div>
                                 </Link>
 
-                                <Link href={"/Card_Request"}>
+                                <Link href={"/Customer_Panel/My_Request"}>
                                     <div className="flex cursor-pointer justify-between items-center px-7 py-3">
                                         <div className="flex items-center gap-4">
-                                            <div className="page_icon">
-                                                <CircleDollarSign color={`${props.pageName === "Transaction" ? "#B8E659" : "white"}`} width="25px" height="25px" />
+                                           
+
+                                             <div className="page_icon">
+                                                <CircleDollarSign color={`${props.pageName === "My_Request" ? "#B8E659" : props.pageName === "Add_New_card" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
 
-                                            <h1 className={`${inter.className} font-normal text-[16px] text-white`}>
-                                                My requests
+                                            
+
+                                            <h1
+                                                className={`${inter.className} ${props.pageName === "My_Request" ? "text-[#B8E659]" : props.pageName === "Add_New_card" ? "text-[#BBE659]" : "text-white"} font-normal text-[16px] font-inter`}
+                                            >
+                                               My requests
                                             </h1>
                                         </div>
                                     </div>

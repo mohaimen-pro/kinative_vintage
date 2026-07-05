@@ -79,7 +79,9 @@ function Header(props) {
                                 ? "Card Details"
                                 : props.pageName === "My_Cards/Card_Details"
                                 ? "Card Details"
-                                : props.pageName.replaceAll("_"," ")
+                                 : props.pageName === "My_Request"
+                                ? "My Request"
+                                : props.pageName.replaceAll("_"," ")  
                     }</h1>
                 </div>
 

@@ -15,6 +15,7 @@ import {
     ArrowRight
 } from "lucide-react";
 import Graph_Section from "./graph_section";
+import Link from "next/link";
 
 
 
@@ -22,7 +23,6 @@ export default function Card_Details() {
     const spent = 2000;
     const total = 10000;
     const progress = (spent / total) * 100;
-
 
     const icons = {
         DollarSign,
@@ -259,17 +259,19 @@ export default function Card_Details() {
                                 </h2>
                             </div>
 
-                            <div className="flex view_all relative z-100 pr-4 pb-3 mt-auto ml-auto items-center gap-3">
-                                <p className="font-normal font-lato text-[13px] text-[#89BE1E] group-hover:text-white">
-                                    View All
-                                </p>
+                            <Link href="/Customer_Panel/Transactions">
+                                <div className="flex view_all relative z-100 pr-4 pb-3 mt-auto ml-auto items-center gap-3">
+                                    <p className="font-normal font-lato text-[13px] text-[#89BE1E] group-hover:text-white">
+                                        View All
+                                    </p>
 
-                                <div
-                                    className="right_arrow w-9.75 h-9.75 bg-[#EBF9EB] rounded-full flex justify-center items-center"
-                                >
-                                    <ArrowRight />
+                                    <div
+                                        className="right_arrow w-9.75 h-9.75 bg-[#EBF9EB] rounded-full flex justify-center items-center"
+                                    >
+                                        <ArrowRight />
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
 
 

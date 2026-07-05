@@ -39,7 +39,7 @@ export default function RootLayout({
         <section className=" flex">
           
 
-          <div className=" mt-1.5 mr-2 flex-10  min-h-screen lg:h-screen overflow-auto">
+          <div className=" mt-1.5 max-[1200px]:mt-0 mr-2 flex-10  min-h-screen lg:h-screen overflow-auto">
 
             {children}
 

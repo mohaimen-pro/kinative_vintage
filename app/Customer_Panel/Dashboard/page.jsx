@@ -17,8 +17,10 @@ import {
     Ban,
     WalletCards,
     CircleDollarSign,
-    Snowflake
+    Snowflake,
+    ArrowRight
 } from "lucide-react";
+import Link from "next/link";
 
 
 
@@ -180,27 +182,19 @@ export default function Dashboard() {
                                 </h2>
                             </div>
 
-                            <div className="flex view_all relative z-100 pr-4 pb-3 mt-auto ml-auto items-center gap-3">
-                                <p className="font-normal font-lato text-[13px] text-[#89BE1E] group-hover:text-white">
-                                    View All
-                                </p>
+                          <Link href="/Customer_Panel/Transactions">
+                                <div className="flex view_all relative z-100 pr-4 pb-3 mt-auto ml-auto items-center gap-3">
+                                    <p className="font-normal font-lato text-[13px] text-[#89BE1E] group-hover:text-white">
+                                        View All
+                                    </p>
 
-                                <div
-                                    className="right_arrow w-9.75 h-9.75 bg-[#EBF9EB] rounded-full flex justify-center items-center"
-                                >
-                                    <img
-                                        src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fright_arrow_green_cards.2-xhe_vtc097m.png&w=32&q=75"
-                                        srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fright_arrow_green_cards.2-xhe_vtc097m.png&w=32&q=75 1x"
-                                        alt=""
-                                        loading="lazy"
-                                        width="16"
-                                        height="12"
-                                        decoding="async"
-                                        data-nimg="1"
-
-                                    />
+                                    <div
+                                        className="right_arrow w-9.75 h-9.75 bg-[#EBF9EB] rounded-full flex justify-center items-center"
+                                    >
+                                        <ArrowRight />
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
 
 
