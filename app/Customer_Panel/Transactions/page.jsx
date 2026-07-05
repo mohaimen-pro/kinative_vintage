@@ -104,7 +104,7 @@ export default function Transactions() {
                 </div>
 
                 
-                <div className="top_spending_cards flex-2 bg-white rounded-[10px] pl-12 pr-10 pt-6">
+                <div className="top_spending_cards flex-2 bg-white rounded-[10px] pl-12 max-[580px]:pl-6 pr-10 pt-6">
                     <p className="font-inter text-[#223933] text-[18px] font-semibold pt-1">Top Spending Card</p>
 
                     <div className="flex flex-col pt-6 gap-4">

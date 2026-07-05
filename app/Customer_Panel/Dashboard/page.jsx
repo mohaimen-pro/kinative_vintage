@@ -18,9 +18,66 @@ import {
     WalletCards,
     CircleDollarSign,
     Snowflake,
-    ArrowRight
+    ArrowRight,
+
 } from "lucide-react";
 import Link from "next/link";
+import amazon_logo from "../../../public/apple_logo.png"
+
+
+const transactions = [
+    {
+        id: 1,
+        logo: amazon_logo.src,
+        company: "Amazon Marketplace",
+        cardNumber: "**** 2344",
+        holderName: "Matt Demon",
+        date: "22 Dec, 2025",
+        time: "6:45 AM",
+        amount: "$12,400",
+        status: "Declined",
+        type: "expense",
+    },
+    {
+        id: 2,
+        logo: amazon_logo.src,
+        company: "Netflix",
+        cardNumber: "**** 5678",
+        holderName: "John Smith",
+        date: "20 Dec, 2025",
+        time: "8:30 PM",
+        amount: "$499",
+        status: "Completed",
+        type: "income",
+    },
+    {
+        id: 3,
+        logo: amazon_logo.src,
+        company: "Spotify",
+        cardNumber: "**** 9012",
+        holderName: "Alice Johnson",
+        date: "18 Dec, 2025",
+        time: "10:15 AM",
+        amount: "$19",
+        status: "Pending",
+        type: "expense",
+    },
+
+    {
+        id: 4,
+        logo: amazon_logo.src,
+        company: "Spotify",
+        cardNumber: "**** 9012",
+        holderName: "Alice Johnson",
+        date: "18 Dec, 2025",
+        time: "10:15 AM",
+        amount: "$19",
+        status: "Pending",
+        type: "expense",
+    },
+
+
+];
 
 
 
@@ -74,7 +131,7 @@ export default function Dashboard() {
         }
     ]
 
-   
+
 
 
     return (
@@ -82,9 +139,9 @@ export default function Dashboard() {
             <Cards cards_info={cards_info} />
 
 
-            <main className="flex  gap-2 mr-2 mb-4">
-                <div className="left flex mt-2 flex-col flex-1 gap-2">
-                    <div className="quick_action justify-center flex-1 gap-8 flex items-center bg-white rounded-[10px]">
+            <main className="flex max-[800px] max-[800px]:flex-col gap-2 mr-2 max-[500px]:mx-auto mb-4">
+                <div className="left flex mt-2 flex-col flex-1 gap-2 ">
+                    <div className="quick_action justify-center max-[800px]:justify-start max-[490px]:justify-center max-[800px]:pl-12 max-[490px]:pl-5 max-[800px]:py-6 flex-1 gap-8 flex items-center bg-white rounded-[10px]">
                         <div className=" flex flex-col gap-2 items-center ">
                             <div className="w-12.5 h-12.5 bg-[#EBF9EB] flex justify-center items-center rounded-full ">
                                 <CircleDollarSign color="#9DCF38" />
@@ -107,8 +164,8 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="credit_card flex-2  bg-white rounded-[10px] justify-between px-9 py-8">
-                        <div className="flex justify-between items-center w-full px-3">
+                    <div className="credit_card flex-2  bg-white rounded-[10px] justify-between px-9 max-[500px]:px-4 py-8">
+                        <div className="flex justify-between max-[800px]:max-w-[370px] items-center w-full px-3">
                             <div>
                                 <h2 className="font-inter font-semibold text-[18px] text-black">Activate Card</h2>
                             </div>
@@ -118,7 +175,7 @@ export default function Dashboard() {
                         <Credit_Card_Slider />
                     </div>
 
-                    <div className="list flex-2 flex items-center bg-white rounded-[10px]">
+                    <div className="list flex-2 flex items-center bg-white rounded-[10px] max-[490px]:pb-5">
                         <div className="bg-white rounded-[10px] flex-1 max-[1050px]:flex-2 pl-8 pt-3">
                             <div className="head flex justify-between items-center ">
                                 <div>
@@ -168,22 +225,22 @@ export default function Dashboard() {
                 </div>
 
 
-                <div className="right flex flex-col flex-2 gap-2">
+                <div className="right flex flex-col flex-2 min-w-0 gap-2">
                     <div className="graph">
                         <Graph_Section />
                     </div>
 
 
-                    <div className="transactions bg-white px-6 py-8 rounded-[10px]">
-                        <div className="graph_head pb-6 px-4 flex justify-between items-center">
+                    <div className="transactions bg-white px-6 max-[500px]:px-2 py-8 rounded-[10px] max-[490px]:pb-5">
+                        <div className="graph_head pb-6 px-4 flex max-[500px]:flex-col max-[500px]:items-start max-[500px]:gap-2 justify-between items-center">
                             <div>
                                 <h2 className="font-inter font-semibold text-[18px] text-black">
                                     Transactions History
                                 </h2>
                             </div>
 
-                          <Link href="/Customer_Panel/Transactions">
-                                <div className="flex view_all relative z-100 pr-4 pb-3 mt-auto ml-auto items-center gap-3">
+                            <Link href="/Customer_Panel/Transactions">
+                                <div className="flex view_all relative z-100 pr-4 mt-auto ml-auto items-center gap-3">
                                     <p className="font-normal font-lato text-[13px] text-[#89BE1E] group-hover:text-white">
                                         View All
                                     </p>
@@ -198,93 +255,120 @@ export default function Dashboard() {
                         </div>
 
 
-                        <div className="block transaction ml-2">
+                        <div className="transaction ml-2">
 
-                            <div className="bg-[#F7F7F7] flex items-center w-full rounded-[10px] px-4 py-2">
-                                <div className="flex-1 flex gap-3 items-center">
-                                    <img
-                                        src="/_next/static/media/apple_logo.2zjlautvm8g47.png"
-                                        alt="Amazon Marketplace"
-                                    />
-                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
-                                        Amazon Marketplace
-                                    </h1>
-                                </div>
 
-                                <h1 className="flex-1 font-inter text-[15px] font-medium text-[#6E8D37]">
-                                    **** 2344
-                                </h1>
-                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
-                                    22 Dec, 2025 6:45 AM
-                                </p>
+                            <div className="max-[700px]:hidden block">
+                                <div className="overflow-x-auto">
+                                    <div className="min-w-[900px]">
+                                        {transactions.map((transaction) => (
+                                            <div
+                                                key={transaction.id}
+                                                className={`${transaction.id % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"} flex   items-center w-full  rounded-[10px] px-4  py-2`}
+                                            >
+                                                <div className="flex-1  w-full flex gap-3  items-center">
+                                                    <img src={transaction.logo} alt={transaction.company} />
+                                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
+                                                        {transaction.company}
+                                                    </h1>
+                                                </div>
 
-                                <div className="flex flex-1 items-center gap-2">
-                                    <div className="text-[#FF6B6B]">+</div>
+                                                <h1 className="flex-1  w-full font-inter text-[15px] font-medium text-[#6E8D37]">
+                                                    {transaction.cardNumber}
+                                                </h1>
 
-                                    <div className="font-inter flex flex-col justify-center text-[#FF6B6B]">
-                                        <p className="font-bold text-[15px]">$12,400</p>
-                                        <p className="font-normal text-[13px]">Declined</p>
+                                                <h1 className="flex-1  w-full font-inter font-medium text-[15px] text-[#223933]">
+                                                    {transaction.holderName}
+                                                </h1>
+
+                                                <p className="flex-1  w-full text-[15px] text-[#697E79] font-normal font-inter">
+                                                    {transaction.date} {transaction.time}
+                                                </p>
+
+                                                <div className="flex flex-1  w-full items-center gap-2">
+                                                    <div
+                                                        className={
+                                                            transaction.type === "expense"
+                                                                ? "text-[#FF6B6B]"
+                                                                : "text-[#6E8D37]"
+                                                        }
+                                                    >
+                                                        {transaction.type === "expense" ? "+" : "-"}
+                                                    </div>
+
+                                                    <div
+                                                        className={`font-inter flex flex-col justify-center ${transaction.type === "expense"
+                                                            ? "text-[#FF6B6B]"
+                                                            : "text-[#6E8D37]"
+                                                            }`}
+                                                    >
+                                                        <p className="font-bold text-[15px]">{transaction.amount}</p>
+                                                        <p className="font-normal text-[13px]">{transaction.status}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
 
 
-                            <div className="bg-white flex items-center w-full rounded-[10px] px-4 py-2">
-                                <div className="flex-1 flex gap-3 items-center">
-                                    <img
-                                        src="/_next/static/media/apple_logo.2zjlautvm8g47.png"
-                                        alt="Netflix"
-                                    />
-                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
-                                        Netflix
-                                    </h1>
-                                </div>
 
-                                <h1 className="flex-1 font-inter text-[15px] font-medium text-[#6E8D37]">
-                                    **** 5678
-                                </h1>
-                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
-                                    20 Dec, 2025 8:30 PM
-                                </p>
 
-                                <div className="flex flex-1 items-center gap-2">
-                                    <div className="text-[#6E8D37]">-</div>
+                            <div className="max-[700px]:block hidden">
+                                {transactions.map((transaction) => (
+                                    <div
+                                        key={transaction.id}
+                                        className={`${transaction.id % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"} flex  flex-col gap-4 w-full  rounded-[10px] px-6 py-4 py-2`}
+                                    >
+                                        <div className="flex justify-between items-center w-full">
+                                            <div className=" flex gap-3 items-center">
+                                                <img src={transaction.logo} alt={transaction.company} />
+                                                <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
+                                                    {transaction.company}
+                                                </h1>
+                                            </div>
 
-                                    <div className="font-inter flex flex-col justify-center text-[#6E8D37]">
-                                        <p className="font-bold text-[15px]">$499</p>
-                                        <p className="font-normal text-[13px]">Completed</p>
+                                            <h1 className=" font-inter text-[15px] font-medium text-[#6E8D37]">
+                                                {transaction.cardNumber}
+                                            </h1>
+                                        </div>
+
+                                        <div className="flex justify-between">
+                                            <div className="flex flex-col">
+                                                <h1 className="flex-1  w-full font-inter font-medium text-[15px] text-[#223933]">
+                                                    {transaction.holderName}
+                                                </h1>
+
+                                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
+                                                    {transaction.date} {transaction.time}
+                                                </p>
+                                            </div>
+
+                                            <div className="flex items-center gap-2">
+                                                <div
+                                                    className={
+                                                        transaction.type === "expense"
+                                                            ? "text-[#FF6B6B]"
+                                                            : "text-[#6E8D37]"
+                                                    }
+                                                >
+                                                    {transaction.type === "expense" ? "+" : "-"}
+                                                </div>
+
+                                                <div
+                                                    className={`font-inter flex flex-col justify-center ${transaction.type === "expense"
+                                                        ? "text-[#FF6B6B]"
+                                                        : "text-[#6E8D37]"
+                                                        }`}
+                                                >
+                                                    <p className="font-bold text-[15px]">{transaction.amount}</p>
+                                                    <p className="font-normal text-[13px]">{transaction.status}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-
-                            <div className="bg-[#F7F7F7] flex items-center w-full rounded-[10px] px-4 py-2">
-                                <div className="flex-1 flex gap-3 items-center">
-                                    <img
-                                        src="/_next/static/media/apple_logo.2zjlautvm8g47.png"
-                                        alt="Spotify"
-                                    />
-                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
-                                        Spotify
-                                    </h1>
-                                </div>
-
-                                <h1 className="flex-1 font-inter text-[15px] font-medium text-[#6E8D37]">
-                                    **** 9012
-                                </h1>
-
-                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
-                                    18 Dec, 2025 10:15 AM
-                                </p>
-
-                                <div className="flex flex-1 items-center gap-2">
-                                    <div className="text-[#FF6B6B]">+</div>
-
-                                    <div className="font-inter flex flex-col justify-center text-[#FF6B6B]">
-                                        <p className="font-bold text-[15px]">$19</p>
-                                        <p className="font-normal text-[13px]">Pending</p>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>

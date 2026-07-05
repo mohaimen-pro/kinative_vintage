@@ -54,7 +54,7 @@ export default function card_list_filter({ cardrequests }) {
         <>
             <div className="filter_section bg-white mt-8">
                 <div className="px-6 pt-8 flex items-center justify-between pb-6">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 max-[500px]:flex-col max-[500px]:items-start max-[500px]:gap-3">
                         <h1 className="font-inter text-[#223933] font-semibold text-[18px]">Customer List</h1>
                         <div className="search flex border border-[#BDD7BD] rounded-[40px] w-[314px] max-[550px]:w-[250px] px-6 py-3 items-start gap-4">
                             <img src={search_icon.src} alt="" />

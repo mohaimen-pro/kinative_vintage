@@ -73,7 +73,7 @@ export default function Card_Details() {
                 </div>
 
 
-                <div className="flex-2 max-[875px]:flex-1 max-[875px]:pb-10 max-[875px]:pt-12  flex gap-30 max-[900px]:gap-10   bg-white rounded-[10px] pl-14 max-[900]:pr-10   ">
+                <div className="flex-2 max-[875px]:flex-1 max-[875px]:pb-10 max-[875px]:pt-12  flex gap-30 max-[900px]:gap-10   bg-white rounded-[10px] pl-14 max-[580px]:pl-6 max-[900]:pr-10   ">
                     <div className="flex flex-col justify-center gap-12">
                         <div className="flex flex-col justify-center gap-1">
                             <p className="text-[15px] font-normal font-lato text-[#7E7E7E]">PLASTIC ID</p>

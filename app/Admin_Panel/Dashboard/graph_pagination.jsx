@@ -190,8 +190,8 @@ export default function Graph_Pagination_section() {
 
 
     return (
-        <div className="graph_section flex max-[700px]:flex-col max-[700px]:justify-center gap-4 max  pt-2">
-            <div className="graph outline-0 border-0 bg-white flex-3 rounded-[10px] px-8 pt-4">
+        <div className="graph_section flex max-[700px]:flex-col max-[700px]:justify-center gap-4   pt-2">
+            <div className="graph outline-0 border-0 bg-white flex-3 rounded-[10px] px-8 max-[500px]:px-4 pt-4">
                 <div className="graph_head pb-6 flex flex-col">
                     <div className=" pb-6 flex justify-between items-center">
                         <div>
@@ -219,7 +219,7 @@ export default function Graph_Pagination_section() {
                                 </div>
                             </div>
 
-                            <div className="graph_filter">
+                            <div className="graph_filter block max-[700px]:hidden">
                                 <div className="relative">
                                     <div
                                         onClick={() => setisOpenFilterGraph((prev) => !prev)}
@@ -265,7 +265,7 @@ export default function Graph_Pagination_section() {
 
                         </div>
                     </div>
-                    <div className="view_all">
+                    <div className="view_all hidden max-[700px]:flex hidden max-[700px]:justify-between">
                         <Link href="/Customer_Panel/Transactions">
                             <div className="flex view_all relative z-100 pr-4 pb-3 mt-auto ml-auto items-center gap-3">
                                 <p className="font-normal font-lato text-[13px] text-[#89BE1E] group-hover:text-white">
@@ -279,6 +279,50 @@ export default function Graph_Pagination_section() {
                                 </div>
                             </div>
                         </Link>
+
+
+                        <div className="graph_filter hidden max-[700px]:block">
+                            <div className="relative">
+                                <div
+                                    onClick={() => setisOpenFilterGraph((prev) => !prev)}
+                                    className="week_sorting_dropdown flex gap-1 bg-[#F7F7F7] cursor-pointer rounded-[40px] justify-between items-center px-4 py-3"
+                                >
+                                    <div className="flex gap-2 items-center">
+                                        <p className="font-inter text-[13px] font-medium text-[#5F887D]">
+                                            {selected_filter.filter_name}
+                                        </p>
+                                    </div>
+
+                                    <img src={down_arrow.src} alt="" />
+                                </div>
+
+                                {isOpenFilterGraph && (
+                                    <div className="absolute top-full left-0  z-200 mt-2 w-full bg-white rounded-2xl border border-gray-200 shadow-xl p-2 flex flex-col gap-1 ">
+                                        {graph_filter_array_ofObjects.map((filter) => (
+                                            <div
+                                                onClick={() => {
+                                                    set_selected_filter(filter);
+                                                    setisOpenFilterGraph(false);
+                                                    set_graph_filter(filter.filter_name)
+                                                }}
+                                                key={filter.id}
+                                                className="rounded-xl px-2 py-3 cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
+                                            >
+                                                <div className="flex items-center">
+                                                    <p className="font-inter text-[12px] font-medium text-[#5F887D]">
+                                                        {filter.filter_name}
+                                                    </p>
+
+
+                                                </div>
+
+                                            </div>
+
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
                     </div>
 
 
@@ -415,7 +459,7 @@ export default function Graph_Pagination_section() {
                             </div>
                         </div>
 
-                        <div className="carousel_info flex justify-between items-center mx-6 min-[1700px]:mx-20">
+                        <div className="carousel_info flex justify-between items-center mx-6 min-[1700px]:mx-20 max-[700px]:mx-30 max-[500px]:mx-20">
                             <div>
                                 <p className="font-lato font-normal text-[12px] text-[#BAE959]">CARD HOLDER</p>
                                 <p className="font-lato font-semibold text-[15px] text-white">{current_card.holder}</p>

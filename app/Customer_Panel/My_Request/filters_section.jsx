@@ -98,10 +98,10 @@ export default function Filters_section(props) {
     return (
         <>
             <div className="filter_section bg-white  mt-2">
-                <div className="px-6 pt-8 flex items-center justify-between pb-6">
+                <div className="px-6 pt-8 flex max-[600px]:flex-col max-[600px]:items-start items-center justify-between pb-6 gap-4">
                     <div className="flex items-center gap-4">
-                        <h1 className="font-inter text-[#223933] font-semibold text-[18px] max-[660px]:hidden block">Customer List</h1>
-                        <div className="search flex max-[660px]:hidden border border-[#BDD7BD] rounded-[40px] w-[314px] max-[550px]:w-[250px] px-6 py-3 items-start gap-4">
+                        <h1 className="font-inter text-[#223933] font-semibold text-[18px] max-[600px]:hidden block">Customer List</h1>
+                        <div className="search flex max-[600px]:hidden border border-[#BDD7BD] rounded-[40px] w-[314px] max-[550px]:w-[250px] px-6 py-3 items-start gap-4">
                             <img src={search_icon.src} alt="" />
                             <input onChange={(e) => set_customer_seach(e.target.value)} className="placeholder:text-[#5F887D] font-normal font-inter text-[14px]" type="text" name="" placeholder="Search Card" id="" />
                         </div>
@@ -110,7 +110,7 @@ export default function Filters_section(props) {
 
                 <div className="flex justify-between  max-[550px]:grid gap-2 items-center">
                     {/* Filter Buttons */}
-                    <div className="filter_btn pb-4 px-6 flex max-[660px]:grid max-[660px]:grid-cols-2 items-center gap-2">
+                    <div className="filter_btn pb-4 px-6 flex flex-wrap max-[600px]:justify-center gap-2 w-full">
                         {filter_buttons.map((button_info, index) => {
                             return (
                                 <button
@@ -120,9 +120,15 @@ export default function Filters_section(props) {
                                         set_active_button(button_info.filter_type);
                                     }}
                                     className={`${active_button_index_filter === index
-                                            ? "bg-black text-white"
-                                            : "bg-[#EBF9EB] hover:bg-amber-50 text-[#27463E]"
-                                        } rounded-[100px] px-10 py-2 transition font-inter text-[13px] font-medium`}
+                                        ? "bg-black text-white"
+                                        : "bg-[#EBF9EB] hover:bg-amber-50 text-[#27463E]"
+                                        } rounded-[100px]
+px-10
+max-[600px]:px-5
+max-[400px]:px-4
+py-2
+text-[13px]
+max-[500px]:text-[12px] py-2 transition font-inter text-[13px] max-[500px]:text-[11px] font-medium`}
                                 >
                                     {button_info.filter_type === "Active"
                                         ? "Approved"
@@ -133,14 +139,14 @@ export default function Filters_section(props) {
                     </div>
 
                     {/* Desktop Filter Dropdown */}
-                    <div className="graph_filter mr-6 max-[660px]:hidden block mb-6">
+                    <div className="graph_filter mr-6 max-[600px]:hidden block mb-6">
                         <div className="relative">
                             <div
                                 onClick={() => setisOpenFilterGraph((prev) => !prev)}
                                 className="flex w-full items-center justify-between rounded-[100px] border border-gray-200 bg-[#F7F7F7] px-6 py-2 shadow-xl cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
                             >
                                 <div className="flex items-center gap-4">
-                                    <p className="font-inter text-[13px] font-medium text-[#8B8B8B]">
+                                    <p className="font-inter text-[13px] max-[500px]:text-[11px] font-medium text-[#8B8B8B]">
                                         {selected_filter.filter_type}
                                     </p>
 
@@ -161,7 +167,7 @@ export default function Filters_section(props) {
                                             className="flex w-full items-center justify-between rounded-xl bg-white px-2 py-3 cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
                                         >
                                             <div className="flex items-center">
-                                                <p className="font-inter text-[12px] font-medium text-[#5F887D]">
+                                                <p className="font-inter text-[12px] max-[500px]:text-[10px] font-medium text-[#5F887D]">
                                                     {info.filter_type}
                                                 </p>
                                             </div>
@@ -173,21 +179,21 @@ export default function Filters_section(props) {
                     </div>
 
                     {/* Mobile Search & Filter */}
-                    <div className="hidden max-[660px]:grid max-[660px]:grid-cols-2 items-center w-full gap-2 px-6 pb-6">
+                    <div className="hidden max-[600px]:flex flex-col gap-4 w-full px-6 pb-6">
                         {/* Search */}
-                        <div className="search flex w-[314px] max-[550px]:w-[200px] items-start gap-4 rounded-[40px] border border-[#BDD7BD] px-6 py-3">
+                        <div className="search flex w-full items-center gap-3 rounded-[40px] border border-[#BDD7BD] px-6 max-[600px]:px-4 max-[600px]:py-2 py-3">
                             <img src={search_icon.src} alt="" />
 
                             <input
                                 type="text"
                                 placeholder="Search Card"
                                 onChange={(e) => set_customer_seach(e.target.value)}
-                                className="placeholder:text-[#5F887D] font-inter text-[14px] font-normal"
+                                className="w-full bg-transparent outline-none placeholder:text-[#5F887D] font-inter text-[14px]"
                             />
                         </div>
 
                         {/* Mobile Filter */}
-                        <div className="relative">
+                        <div className="relative relative w-full">
                             <div
                                 onClick={() => setisOpenFilterGraph((prev) => !prev)}
                                 className="flex w-full items-center justify-between rounded-[100px] border border-gray-200 bg-[#F7F7F7] px-6 py-2 shadow-xl cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"

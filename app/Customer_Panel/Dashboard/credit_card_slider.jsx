@@ -51,12 +51,12 @@ export default function credit_card_slide() {
 
     return (
         <div className="credit_card ">
-            <div className="carousel_upper_part flex items-center mt-5">
+            <div className="carousel_upper_part flex items-center mt-5 ">
                 <div  className="left_arrow cursor-pointer">
                     <ArrowLeft color="black" className="w-3 h-3" />
                 </div>
                 <div
-                    className="relative w-[358px] h-[226px] rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
+                    className="relative w-[358px] h-[226px] max-[400px]:w-[310px] max-[400px]:h-[195px] rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
                     style={{
                         backgroundImage: "url(/credit_card_bg.png)",
                         backgroundSize: "cover",

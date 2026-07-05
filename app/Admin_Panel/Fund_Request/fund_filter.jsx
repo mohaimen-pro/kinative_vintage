@@ -127,8 +127,8 @@ export default function Fund_Filter({ fund_requests }) {
 
 
         <>
-            <div className=" pl-12 pt-8 pr-6 bg-white">
-                <div className="date_filter flex items-center justify-between pb-10">
+            <div className="max-[580px]:pl-8 pl-12 pt-8 pr-6 bg-white">
+                <div className="date_filter flex max-[580px]:flex-col max-[580px]:gap-4 justify-between pb-10">
                     <h1 className="font-inter font-semibold text-[#223933] text-[18px]">Fund Request</h1>
                     <div className="dropdown min-w-60 relative flex justify-center rounded-[100px] bg-[#F7F7F7] items-center gap-1 px-4 py-3">
 
@@ -166,7 +166,7 @@ export default function Fund_Filter({ fund_requests }) {
 
                         {/* Calendar */}
                         {showPicker && (
-                            <div className="absolute -left-25 top-8 mt-3 z-50">
+                            <div className="absolute -left-25 max-[580px]:-left-0 max-[580px]:top-10 top-8 mt-3 z-50">
                                 <DateRange
                                     editableDateInputs
                                     moveRangeOnFirstSelection={false}
@@ -212,7 +212,7 @@ export default function Fund_Filter({ fund_requests }) {
                 </div>
             </div>
             <div className="filter_section bg-white pt-8">
-                <div className="filter_btn pb-4 px-6 min-[581px]flex max-[580px]:grid max-[580px]:grid-cols-2 items-center">
+                <div className="filter_btn pb-4 px-6 min-[581px] flex max-[580px]:grid max-[580px]:gap-3 max-[580px]:grid-cols-2 items-center">
                     {
                         filter_buttons.map((button_info, index) => {
                             return (

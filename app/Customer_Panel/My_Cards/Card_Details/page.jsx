@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Graph_Section from "./graph_section";
 import Link from "next/link";
+import amazon_logo from "../../../../public/apple_logo.png"
 
 
 
@@ -58,13 +59,69 @@ export default function Card_Details() {
     ]
 
 
+    const transactions = [
+        {
+            id: 1,
+            logo: amazon_logo.src,
+            company: "Amazon Marketplace",
+            cardNumber: "**** 2344",
+            holderName: "Matt Demon",
+            date: "22 Dec, 2025",
+            time: "6:45 AM",
+            amount: "$12,400",
+            status: "Declined",
+            type: "expense",
+        },
+        {
+            id: 2,
+            logo: amazon_logo.src,
+            company: "Netflix",
+            cardNumber: "**** 5678",
+            holderName: "John Smith",
+            date: "20 Dec, 2025",
+            time: "8:30 PM",
+            amount: "$499",
+            status: "Completed",
+            type: "income",
+        },
+        {
+            id: 3,
+            logo: amazon_logo.src,
+            company: "Spotify",
+            cardNumber: "**** 9012",
+            holderName: "Alice Johnson",
+            date: "18 Dec, 2025",
+            time: "10:15 AM",
+            amount: "$19",
+            status: "Pending",
+            type: "expense",
+        },
+
+        {
+            id: 4,
+            logo: amazon_logo.src,
+            company: "Spotify",
+            cardNumber: "**** 9012",
+            holderName: "Alice Johnson",
+            date: "18 Dec, 2025",
+            time: "10:15 AM",
+            amount: "$19",
+            status: "Pending",
+            type: "expense",
+        },
+
+
+    ];
+
+
+
 
     return (
         <main className="mt-5 ml-2 flex max-[860px]:flex-col max-[500px]:gap-4 max-[500px]:mt-0 max-[500px]:ml-2 max-[500px]:mr-0 gap-4 mb-2 mr-4">
             <div className="left bg-white rounded-[10px]  flex-1">
-                <div className="bg-white ">
+                <div className="bg-white">
                     <div className="flex-1 flex flex-col justify-between bg-white rounded-[10px] max-[390px]:px-2 px-6  py-8">
-                        <div className="flex justify-between pl-2v max-[390px]:mx-2">
+                        <div className="flex justify-between  pl-2v max-[390px]:mx-2">
                             <h1 className="font-semibold font-inter text-[#223933] text-[18px]">Card Details</h1>
                             <span className="inline-flex items-center gap-2 rounded-[100px] font-inter px-4 py-1 text-[15px] font-normal bg-[#FFF5D9] text-[#223933]">
                                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFBB38]"></span>Pending</span>
@@ -121,7 +178,7 @@ export default function Card_Details() {
 
                     </div>
                 </div>
-                <div className="quick_action justify-center px-8 max-[390px]:px-2 py-6 m-6 max-[390px]:m-2 max-[390px]:mb-6  flex-1 gap-6 flex items-center bg-white rounded-[10px] border-1 border-[#EBF9EB]">
+                <div className="quick_action justify-center  px-8 max-[390px]:px-2 py-6 m-6 max-[390px]:m-2 max-[390px]:mb-6  flex-1 gap-6 flex items-center bg-white rounded-[10px] border-1 border-[#EBF9EB]">
                     <div className=" flex flex-col gap-2 items-center ">
                         <div className="w-12.5 h-12.5 bg-[#EBF9EB] flex justify-center items-center rounded-full ">
                             <CircleDollarSign color="#9DCF38" />
@@ -144,7 +201,7 @@ export default function Card_Details() {
                     </div>
                 </div>
 
-                <div className="w-[340px] rounded-[14px] m-6 max-[390px]:m-1 bg-gradient-to-br from-[#EEF7EE] to-[#E7F3E5] px-6 py-6">
+                <div className="w-[340px] rounded-[14px] m-6 max-[860px]:mx-auto max-[390px]:m-1 bg-gradient-to-br from-[#EEF7EE] to-[#E7F3E5] px-6 py-6">
                     {/* Header */}
                     <div className="flex items-start justify-between">
                         <h2 className="font-inter text-[18px] font-semibold leading-none text-[#223933]">
@@ -204,7 +261,7 @@ export default function Card_Details() {
                 </div>
             </div>
 
-            <div className="right flex flex-col gap-2 flex-3">
+            <div className="right flex flex-col gap-2 min-w-0 flex-3">
                 <div className="flex-[0.3] rounded-[10px] max-[1450px]:flex-col flex gap-4 mb-2">
                     {
                         cards_info.map((card_info, index) => {
@@ -250,9 +307,9 @@ export default function Card_Details() {
                     <Graph_Section />
                 </div>
 
-                <div className="flex-[2] overflow-x-auto bg-white rounded-[10px]">
-                    <div className="transactions min-w-[900px]  bg-white px-6 py-8 rounded-[10px]">
-                        <div className="graph_head pb-6 px-4 flex justify-between items-center">
+                <div className="flex-[2] bg-white rounded-[10px]">
+                    <div className="transactions  bg-white px-6 py-8 rounded-[10px]">
+                        <div className="graph_head pb-6 px-4 flex max-[500px]:flex-col max-[500px]:gap-3 max-[500px]:items-start justify-between items-center">
                             <div>
                                 <h2 className="font-inter font-semibold text-[18px] text-black">
                                     Transactions History
@@ -275,93 +332,120 @@ export default function Card_Details() {
                         </div>
 
 
-                        <div className="block transaction ml-2">
+                        <div className="transaction ml-2 max-[500px]:ml-0">
 
-                            <div className="bg-[#F7F7F7] flex items-center w-full rounded-[10px] px-4 py-2">
-                                <div className="flex-1 flex gap-3 items-center">
-                                    <img
-                                        src="/_next/static/media/apple_logo.2zjlautvm8g47.png"
-                                        alt="Amazon Marketplace"
-                                    />
-                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
-                                        Amazon Marketplace
-                                    </h1>
-                                </div>
 
-                                <h1 className="flex-1 font-inter text-[15px] font-medium text-[#6E8D37]">
-                                    **** 2344
-                                </h1>
-                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
-                                    22 Dec, 2025 6:45 AM
-                                </p>
+                            <div className="max-[700px]:hidden block">
+                                <div className="overflow-x-auto">
+                                    <div className="min-w-[900px]">
+                                        {transactions.map((transaction) => (
+                                            <div
+                                                key={transaction.id}
+                                                className={`${transaction.id % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"} flex  items-center w-full  rounded-[10px] px-4  py-2`}
+                                            >
+                                                <div className="flex-1  w-full flex gap-3  items-center">
+                                                    <img src={transaction.logo} alt={transaction.company} />
+                                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
+                                                        {transaction.company}
+                                                    </h1>
+                                                </div>
 
-                                <div className="flex flex-1 items-center gap-2">
-                                    <div className="text-[#FF6B6B]">+</div>
+                                                <h1 className="flex-1  w-full font-inter text-[15px] font-medium text-[#6E8D37]">
+                                                    {transaction.cardNumber}
+                                                </h1>
 
-                                    <div className="font-inter flex flex-col justify-center text-[#FF6B6B]">
-                                        <p className="font-bold text-[15px]">$12,400</p>
-                                        <p className="font-normal text-[13px]">Declined</p>
+                                                <h1 className="flex-1  w-full font-inter font-medium text-[15px] text-[#223933]">
+                                                    {transaction.holderName}
+                                                </h1>
+
+                                                <p className="flex-1  w-full text-[15px] text-[#697E79] font-normal font-inter">
+                                                    {transaction.date} {transaction.time}
+                                                </p>
+
+                                                <div className="flex flex-1  w-full items-center gap-2">
+                                                    <div
+                                                        className={
+                                                            transaction.type === "expense"
+                                                                ? "text-[#FF6B6B]"
+                                                                : "text-[#6E8D37]"
+                                                        }
+                                                    >
+                                                        {transaction.type === "expense" ? "+" : "-"}
+                                                    </div>
+
+                                                    <div
+                                                        className={`font-inter flex flex-col justify-center ${transaction.type === "expense"
+                                                            ? "text-[#FF6B6B]"
+                                                            : "text-[#6E8D37]"
+                                                            }`}
+                                                    >
+                                                        <p className="font-bold text-[15px]">{transaction.amount}</p>
+                                                        <p className="font-normal text-[13px]">{transaction.status}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
 
 
-                            <div className="bg-white flex items-center w-full rounded-[10px] px-4 py-2">
-                                <div className="flex-1 flex gap-3 items-center">
-                                    <img
-                                        src="/_next/static/media/apple_logo.2zjlautvm8g47.png"
-                                        alt="Netflix"
-                                    />
-                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
-                                        Netflix
-                                    </h1>
-                                </div>
 
-                                <h1 className="flex-1 font-inter text-[15px] font-medium text-[#6E8D37]">
-                                    **** 5678
-                                </h1>
-                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
-                                    20 Dec, 2025 8:30 PM
-                                </p>
 
-                                <div className="flex flex-1 items-center gap-2">
-                                    <div className="text-[#6E8D37]">-</div>
+                            <div className="max-[700px]:block hidden">
+                                {transactions.map((transaction) => (
+                                    <div
+                                        key={transaction.id}
+                                        className={`${transaction.id % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"} flex  flex-col gap-4 w-full  rounded-[10px] px-6 py-4 py-2`}
+                                    >
+                                        <div className="flex justify-between items-center w-full">
+                                            <div className=" flex gap-3 items-center">
+                                                <img src={transaction.logo} alt={transaction.company} />
+                                                <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
+                                                    {transaction.company}
+                                                </h1>
+                                            </div>
 
-                                    <div className="font-inter flex flex-col justify-center text-[#6E8D37]">
-                                        <p className="font-bold text-[15px]">$499</p>
-                                        <p className="font-normal text-[13px]">Completed</p>
+                                            <h1 className=" font-inter text-[15px] font-medium text-[#6E8D37]">
+                                                {transaction.cardNumber}
+                                            </h1>
+                                        </div>
+
+                                        <div className="flex justify-between">
+                                            <div className="flex flex-col">
+                                                <h1 className="flex-1  w-full font-inter font-medium text-[15px] text-[#223933]">
+                                                    {transaction.holderName}
+                                                </h1>
+
+                                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
+                                                    {transaction.date} {transaction.time}
+                                                </p>
+                                            </div>
+
+                                            <div className="flex items-center gap-2">
+                                                <div
+                                                    className={
+                                                        transaction.type === "expense"
+                                                            ? "text-[#FF6B6B]"
+                                                            : "text-[#6E8D37]"
+                                                    }
+                                                >
+                                                    {transaction.type === "expense" ? "+" : "-"}
+                                                </div>
+
+                                                <div
+                                                    className={`font-inter flex flex-col justify-center ${transaction.type === "expense"
+                                                        ? "text-[#FF6B6B]"
+                                                        : "text-[#6E8D37]"
+                                                        }`}
+                                                >
+                                                    <p className="font-bold text-[15px]">{transaction.amount}</p>
+                                                    <p className="font-normal text-[13px]">{transaction.status}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-
-                            <div className="bg-[#F7F7F7] flex items-center w-full rounded-[10px] px-4 py-2">
-                                <div className="flex-1 flex gap-3 items-center">
-                                    <img
-                                        src="/_next/static/media/apple_logo.2zjlautvm8g47.png"
-                                        alt="Spotify"
-                                    />
-                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
-                                        Spotify
-                                    </h1>
-                                </div>
-
-                                <h1 className="flex-1 font-inter text-[15px] font-medium text-[#6E8D37]">
-                                    **** 9012
-                                </h1>
-
-                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
-                                    18 Dec, 2025 10:15 AM
-                                </p>
-
-                                <div className="flex flex-1 items-center gap-2">
-                                    <div className="text-[#FF6B6B]">+</div>
-
-                                    <div className="font-inter flex flex-col justify-center text-[#FF6B6B]">
-                                        <p className="font-bold text-[15px]">$19</p>
-                                        <p className="font-normal text-[13px]">Pending</p>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
