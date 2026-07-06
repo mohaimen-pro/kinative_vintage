@@ -190,7 +190,7 @@ export default function Graph_Pagination_section() {
 
 
     return (
-        <div className="graph_section flex max-[700px]:flex-col max-[700px]:justify-center gap-4   pt-2">
+        <div className="graph_section flex max-[700px]:flex-col max-[700px]:justify-center gap-4 pt-2">
             <div className="graph outline-0 border-0 bg-white flex-3 rounded-[10px] px-8 max-[500px]:px-4 pt-4">
                 <div className="graph_head pb-6 flex flex-col">
                     <div className=" pb-6 flex justify-between items-center">
@@ -199,7 +199,7 @@ export default function Graph_Pagination_section() {
                         </div>
                         <div className="sorting_section flex gap-2 items-center">
                             <div onClick={() => set_show_graph(true)} className=" flex-1">
-                                <div className={`${show_graph ? "bg-[#9EC952]" : "bg-white"} w-[35px] h-[35px] flex justify-center items-center  rounded-[5px]`}>
+                                <div className={`${show_graph ? "bg-[#9EC952]" : "bg-white"} w-8.75 h-[35px] flex justify-center items-center  rounded-[5px]`}>
                                     {show_graph ?
                                         <img src={bar_charts_icon.src} alt="" />
                                         : <img src={bar_chart_green.src} alt="" />
@@ -208,7 +208,7 @@ export default function Graph_Pagination_section() {
                             </div>
 
                             <div onClick={() => set_show_graph(false)} className=" flex-1">
-                                <div className={`${show_graph ? "bg-white" : "bg-[#B7E658]"} w-[35px] h-[35px] flex justify-center items-center border border-[1px] border-[#E5E5E5] rounded-[5px]`}>
+                                <div className={`${show_graph ? "bg-white" : "bg-[#B7E658]"} w-8.75 h-[35px] flex justify-center items-center border border-[1px] border-[#E5E5E5] rounded-[5px]`}>
                                     {show_graph ?
                                         <img src={format_list_bulleted.src} alt="" />
 
@@ -369,54 +369,121 @@ export default function Graph_Pagination_section() {
                     </ResponsiveContainer>
                 </div>
 
-                <div className={`${show_graph ? "hidden" : "block"} transaction ml-2`}>
-                    {transactions.map((transaction) => (
-                        <div
-                            key={transaction.id}
-                            className={`${transaction.id % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"} flex items-center w-full  rounded-[10px] px-4 py-2`}
-                        >
-                            <div className="flex-1 flex gap-3 items-center">
-                                <img src={transaction.logo} alt={transaction.company} />
-                                <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
-                                    {transaction.company}
-                                </h1>
+                <div className={`${show_graph ? "hidden" : "block"} transaction ml-2 max-[500px]:ml-0`}>
+                       <div className="transaction max-[500px]:ml-0">
+                            <div className="max-[700px]:hidden block">
+                                <div className="overflow-x-auto">
+                                    <div className="min-w-[900px]">
+                                        {transactions.map((transaction) => (
+                                            <div
+                                                key={transaction.id}
+                                                className={`${transaction.id % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"} flex   items-center w-full  rounded-[10px] px-4  py-2`}
+                                            >
+                                                <div className="flex-1  w-full flex gap-3  items-center">
+                                                    <img src={transaction.logo} alt={transaction.company} />
+                                                    <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
+                                                        {transaction.company}
+                                                    </h1>
+                                                </div>
+
+                                                <h1 className="flex-1  w-full font-inter text-[15px] font-medium text-[#6E8D37]">
+                                                    {transaction.cardNumber}
+                                                </h1>
+
+                                                <h1 className="flex-1  w-full font-inter font-medium text-[15px] text-[#223933]">
+                                                    {transaction.holderName}
+                                                </h1>
+
+                                                <p className="flex-1  w-full text-[15px] text-[#697E79] font-normal font-inter">
+                                                    {transaction.date} {transaction.time}
+                                                </p>
+
+                                                <div className="flex flex-1  w-full items-center gap-2">
+                                                    <div
+                                                        className={
+                                                            transaction.type === "expense"
+                                                                ? "text-[#FF6B6B]"
+                                                                : "text-[#6E8D37]"
+                                                        }
+                                                    >
+                                                        {transaction.type === "expense" ? "+" : "-"}
+                                                    </div>
+
+                                                    <div
+                                                        className={`font-inter flex flex-col justify-center ${transaction.type === "expense"
+                                                            ? "text-[#FF6B6B]"
+                                                            : "text-[#6E8D37]"
+                                                            }`}
+                                                    >
+                                                        <p className="font-bold text-[15px]">{transaction.amount}</p>
+                                                        <p className="font-normal text-[13px]">{transaction.status}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
 
-                            <h1 className="flex-1 font-inter text-[15px] font-medium text-[#6E8D37]">
-                                {transaction.cardNumber}
-                            </h1>
 
-                            <h1 className="flex-1 font-inter font-medium text-[15px] text-[#223933]">
-                                {transaction.holderName}
-                            </h1>
 
-                            <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
-                                {transaction.date} {transaction.time}
-                            </p>
 
-                            <div className="flex flex-1 items-center gap-2">
-                                <div
-                                    className={
-                                        transaction.type === "expense"
-                                            ? "text-[#FF6B6B]"
-                                            : "text-[#6E8D37]"
-                                    }
-                                >
-                                    {transaction.type === "expense" ? "+" : "-"}
-                                </div>
+                            <div className="max-[700px]:block hidden">
+                                {transactions.map((transaction) => (
+                                    <div
+                                        key={transaction.id}
+                                        className={`${transaction.id % 2 === 0 ? "bg-white" : "bg-[#F7F7F7]"} flex  flex-col gap-4 w-full  rounded-[10px] px-6 py-4 py-2`}
+                                    >
+                                        <div className="flex justify-between items-center w-full">
+                                            <div className=" flex gap-3 items-center">
+                                                <img src={transaction.logo} alt={transaction.company} />
+                                                <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
+                                                    {transaction.company}
+                                                </h1>
+                                            </div>
 
-                                <div
-                                    className={`font-inter flex flex-col justify-center ${transaction.type === "expense"
-                                        ? "text-[#FF6B6B]"
-                                        : "text-[#6E8D37]"
-                                        }`}
-                                >
-                                    <p className="font-bold text-[15px]">{transaction.amount}</p>
-                                    <p className="font-normal text-[13px]">{transaction.status}</p>
-                                </div>
+                                            <h1 className=" font-inter text-[15px] font-medium text-[#6E8D37]">
+                                                {transaction.cardNumber}
+                                            </h1>
+                                        </div>
+
+                                        <div className="flex justify-between">
+                                            <div className="flex flex-col">
+                                                <h1 className="flex-1  w-full font-inter font-medium text-[15px] text-[#223933]">
+                                                    {transaction.holderName}
+                                                </h1>
+
+                                                <p className="flex-1 text-[15px] text-[#697E79] font-normal font-inter">
+                                                    {transaction.date} {transaction.time}
+                                                </p>
+                                            </div>
+
+                                            <div className="flex items-center gap-2">
+                                                <div
+                                                    className={
+                                                        transaction.type === "expense"
+                                                            ? "text-[#FF6B6B]"
+                                                            : "text-[#6E8D37]"
+                                                    }
+                                                >
+                                                    {transaction.type === "expense" ? "+" : "-"}
+                                                </div>
+
+                                                <div
+                                                    className={`font-inter flex flex-col justify-center ${transaction.type === "expense"
+                                                        ? "text-[#FF6B6B]"
+                                                        : "text-[#6E8D37]"
+                                                        }`}
+                                                >
+                                                    <p className="font-bold text-[15px]">{transaction.amount}</p>
+                                                    <p className="font-normal text-[13px]">{transaction.status}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    ))}
                 </div>
             </div>
 
