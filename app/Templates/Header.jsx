@@ -94,7 +94,7 @@ function Header(props) {
 
                 <div className="user_info flex gap-2 items-center">
 
-                    <div className="dark_modeBTN pr-2 cursor-pointer">
+                    <div onClick={() => props.set_isDarkMode(prev => !prev)} className="dark_modeBTN pr-2 cursor-pointer">
                         <Image src={dark_mode_button_black} alt="" />
                     </div>
                     {

@@ -14,6 +14,7 @@ export default function DashboardLayout({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isAdminView, set_admin_view] = useState(true);
+  const [isDarkMode, set_isDarkMode] = useState(false);
   const pathname = usePathname();
   const is_customer = false;
   const page_name = pathname.toString().split("/Admin_Panel/")[1]
@@ -30,11 +31,13 @@ export default function DashboardLayout({
         />
 
         <div className="flex-1 flex flex-col overflow-hidden">
+          
           <Header
             setIsOpen={setIsOpen}
             isAdminView={isAdminView}
             set_admin_view={set_admin_view}
             pageName={page_name}
+            set_isDarkMode={set_isDarkMode}
           />
 
           <main className="flex-1 min-w-0 overflow-y-auto">
