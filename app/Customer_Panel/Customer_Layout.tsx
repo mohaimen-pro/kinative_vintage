@@ -31,7 +31,7 @@ export default function DashboardLayout({
           pageName={page_name}
         />
 
-        <div className="flex-1 flex flex-col overflow-hidden pt-2">
+        <div className="flex-1 flex flex-col overflow-hidden">
           <Header
             setIsOpen={setIsOpen}
             isAdminView={isAdminView}

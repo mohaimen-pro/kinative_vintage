@@ -215,7 +215,7 @@ function Sidebar(props) { //props
                                 </Link>
 
                                 <Link href={"/Customer_Panel/My_Cards"}>
-                                    <div className="flex cursor-pointer justify-between items-center px-7 py-3">
+                                    <div className={`${props.pageName === "My_Cards" || props.pageName === "My_Cards/Card_Details" ? "bg-[#27463E] rounded-[100px]" : props.pageName === "Add_New_card" ? "bg-[#27463E] rounded-[100px]" : ""} flex cursor-pointer justify-between items-center px-7 py-3`}>
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
                                                 <User color={`${props.pageName === "My_Cards" || props.pageName === "My_Cards/Card_Details" ? "#B8E659" : props.pageName === "Add_New_card" ? "#B8E659" : "white"}`} width="25px" height="25px" />
@@ -235,14 +235,14 @@ function Sidebar(props) { //props
                                 </Link>
 
                                 <Link href={"/Customer_Panel/Transactions"}>
-                                    <div className="flex cursor-pointer justify-between items-center px-7 py-3">
+                                    <div className={`flex cursor-pointer ${props.pageName === "Transactions" ? 'bg-[#27463E] rounded-[100px]' : ""}  justify-between items-center px-7 py-3`}>
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                                <CreditCard color={`${props.pageName === "Transactions"? "#B8E659" : props.pageName === "Add_New_card" ? "#B8E659" : "white"}`} width="25px" height="25px" />
+                                                <CreditCard color={`${props.pageName === "Transactions"? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
                                         
                                             <h1
-                                                className={`${inter.className} ${props.pageName === "Transactions" ? "text-[#B8E659]" : props.pageName === "Add_New_card" ? "text-[#BBE659]" : "text-white"} font-normal text-[16px] font-inter`}
+                                                className={`${inter.className} ${props.pageName === "Transactions" ? "text-[#B8E659]" : "text-white"} font-normal text-[16px] font-inter`}
                                             >
                                                Transactions
                                             </h1>
@@ -251,18 +251,18 @@ function Sidebar(props) { //props
                                 </Link>
 
                                 <Link href={"/Customer_Panel/My_Request"}>
-                                    <div className="flex cursor-pointer justify-between items-center px-7 py-3">
+                                    <div className={`${props.pageName === "My_Request" ? 'bg-[#27463E] rounded-[100px]' : ""} flex cursor-pointer justify-between items-center px-7 py-3`}>
                                         <div className="flex items-center gap-4">
                                            
 
                                              <div className="page_icon">
-                                                <CircleDollarSign color={`${props.pageName === "My_Request" ? "#B8E659" : props.pageName === "Add_New_card" ? "#B8E659" : "white"}`} width="25px" height="25px" />
+                                                <CircleDollarSign color={`${props.pageName === "My_Request" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
 
                                             
 
                                             <h1
-                                                className={`${inter.className} ${props.pageName === "My_Request" ? "text-[#B8E659]" : props.pageName === "Add_New_card" ? "text-[#BBE659]" : "text-white"} font-normal text-[16px] font-inter`}
+                                                className={`${inter.className} ${props.pageName === "My_Request" ? "text-[#B8E659]" : "text-white"} font-normal text-[16px] font-inter`}
                                             >
                                                My requests
                                             </h1>

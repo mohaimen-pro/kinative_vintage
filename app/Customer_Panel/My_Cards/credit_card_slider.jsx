@@ -19,10 +19,10 @@ export default function Credit_Card_slider() {
             <div className="activate_card flex flex-col gap-4">
                 <h1 className="font-semibold text-[18px] font-inter text-[#223933] pl-2">Activate Cards</h1>
 
-                <div className="deactivated_cards flex items-stretch">
+                <div className="deactivated_cards flex gap-4 overflow-x-auto pb-2">
 
                     <div
-                        className="relative w-[358px] h-[226px] rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
+                        className="relative w-[358px] h-[226px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
                         style={{
                             backgroundImage: "url(/credit_card_bg.png)",
                             backgroundSize: "cover",
@@ -85,7 +85,7 @@ export default function Credit_Card_slider() {
                     </div>
 
                     <div
-                        className="relative w-[358px] h-[226px] rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
+                        className="relative w-[358px] h-[226px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
                         style={{
                             backgroundImage: "url(/credit_card_bg.png)",
                             backgroundSize: "cover",
@@ -157,10 +157,10 @@ export default function Credit_Card_slider() {
             <div className="frequently_used_card flex flex-col gap-4">
                 <h1 className="font-semibold text-[18px] font-inter text-[#223933] pl-2">Frequently Used Cards</h1>
 
-                <div className="deactivated_cards flex items-stretch">
+                <div className="deactivated_cards flex gap-4 overflow-x-auto pb-2">
 
                     <div
-                        className="relative w-[358px] h-[235px] rounded-[9px] p-9  flex flex-col justify-between overflow-hidden"
+                        className="relative w-[358px] h-[235px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9  flex flex-col justify-between overflow-hidden"
                         style={{
                             backgroundImage: "url(/credit_card_bg.png)",
                             backgroundSize: "cover",
@@ -203,7 +203,7 @@ export default function Credit_Card_slider() {
                     </div>
 
                     <div
-                        className="relative w-[358px] h-[235px] rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
+                        className="relative w-[358px] h-[235px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
                         style={{
                             backgroundImage: "url(/credit_card_bg.png)",
                             backgroundSize: "cover",

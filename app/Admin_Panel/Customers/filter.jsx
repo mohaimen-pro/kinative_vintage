@@ -64,7 +64,7 @@ export default function filter_section(props) {
         <>
             <div className="filter_section bg-white mt-2">
                 <div className="px-6 max-[500px]:px-2  pt-8 flex items-center justify-between pb-6">
-                    <div className="flex items-center max-[420px]:flex-col max-[420px]:items-start  gap-4">
+                    <div className="flex items-center max-[420px]:flex-col max-[420px]:items-start max-[500px]:pl-5  gap-4">
                         <h1 className="font-inter text-[#223933] font-semibold text-[18px]">Customer List</h1>
                         <div className="search flex max-[660px]:hidden  border border-[#BDD7BD] rounded-[40px] w-[314px] px-6 py-3 items-start gap-4">
                             <img src={search_icon.src} alt="" />
@@ -75,7 +75,7 @@ export default function filter_section(props) {
                     <div className="button max-[660px]:hidden block ">
                         <div className="return_button bg-[#223933] rounded-[100px] px-4 py-3 flex items-center gap-2 cursor-pointer">
                             <Plus color="#A1CC53" alt="" />
-                            <button className="font-medium text-[14px] font-inter text-white cursor-pointer">Add New Customer</button>
+                            <button className="font-medium text-[14px]  font-inter text-white cursor-pointer">Add New Customer</button>
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ export default function filter_section(props) {
                     {
                         filter_buttons.map((button_info, index) => {
                             return (
-                                <button onClick={() => Handle_Filter_button(button_info.filter_type, index)} key={button_info.id} className={`${active_button_index_filter === index ? "bg-black text-white" : "bg-[#EBF9EB] hover:bg-amber-50 text-[#27463E]"}   rounded-[100px] px-10 py-2   transition font-inter text-[13px] font-medium`}>{button_info.filter_type}</button>
+                                <button onClick={() => Handle_Filter_button(button_info.filter_type, index)} key={button_info.id} className={`${active_button_index_filter === index ? "bg-black text-white" : "bg-[#EBF9EB] hover:bg-amber-50 text-[#27463E]"} max-[500px]:text-[11px]  rounded-[100px] px-10 py-2   transition font-inter text-[13px] font-medium`}>{button_info.filter_type}</button>
                             )
                         })
                     }

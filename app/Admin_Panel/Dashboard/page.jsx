@@ -73,9 +73,9 @@ export default function Dashboard() {
 
             <Cards cards_info={cards_info} />
             <Graph_section />
-            <div className="informations_section flex max-[890px]:flex-col max-[890px]:mx-2 max-[890px]:justify-center gap-2 mt-2 ">
+            <div className="informations_section flex max-[890px]:flex-col max-[890px]:mx-2 max-[890px]:justify-center gap-2 max-[500px]:gap-3 mt-2 ">
                 <div className="activity_log max-[700px]:overflow-x-auto bg-white rounded-[10px] max-[700px]:flex-0  flex-2 pl-7 pt-2">
-                    <div className="max-[700px] min-w-120">
+                    <div className="max-[700px] min-w-130">
                         <div className="head flex justify-between items-center">
                             <div>
                                 <h2 className="font-inter font-semibold text-[18px] text-black">Activity Log</h2>

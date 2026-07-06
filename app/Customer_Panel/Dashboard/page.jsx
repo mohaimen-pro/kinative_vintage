@@ -141,7 +141,7 @@ export default function Dashboard() {
 
             <main className="flex max-[800px] max-[800px]:flex-col gap-2 mr-2 max-[500px]:mx-auto mb-4">
                 <div className="left flex mt-2 flex-col flex-1 gap-2 ">
-                    <div className="quick_action justify-center max-[800px]:justify-start max-[490px]:justify-center max-[800px]:pl-12 max-[490px]:pl-5 max-[800px]:py-6 flex-1 gap-8 flex items-center bg-white rounded-[10px]">
+                    <div className="quick_action justify-center max-[800px]:justify-start max-[490px]:justify-center max-[800px]:pl-12 max-[490px]:pl-2 max-[800px]:py-6 flex-1 gap-8 flex items-center bg-white rounded-[10px]">
                         <div className=" flex flex-col gap-2 items-center ">
                             <div className="w-12.5 h-12.5 bg-[#EBF9EB] flex justify-center items-center rounded-full ">
                                 <CircleDollarSign color="#9DCF38" />
