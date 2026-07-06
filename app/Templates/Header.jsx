@@ -65,7 +65,7 @@ function Header(props) {
 
             </div>
 
-            <header className="bg-white sticky top-0 z-200 shadow-md rounded-[10px] max-[580px]:pl-5 max-[580px]:pr-0 max-[580px]:rounded-[0px] w-full pl-9 pr-2 py-4 flex justify-between items-center">
+            <header className="bg-white sticky top-0 z-200 max-[480px]:fixed max-[480px]:top-0 max-[480px]:left-0 max-[480px]:right-0 shadow-md rounded-[10px] max-[580px]:pl-5 max-[580px]:pr-0 max-[580px]:rounded-[0px] w-full pl-9 pr-2 py-4 flex justify-between items-center">
                 <div className="flex items-center gap-2 ">
 
 
