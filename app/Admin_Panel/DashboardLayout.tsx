@@ -22,7 +22,7 @@ export default function DashboardLayout({
   return (
 
     <>
-      <section className="flex bg-[#F7F7F7] h-screen overflow-hidden gap-2 items center">
+      <section className="flex bg-[#F7F7F7] h-screen max-[500px]:min-h-screen overflow-hidden gap-2 items center">
         <Sidebar
           isAdminView={isAdminView}
           isOpen={isOpen}
