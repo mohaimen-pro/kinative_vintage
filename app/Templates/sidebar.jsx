@@ -10,8 +10,7 @@ import Analytics_page_icon from "@/public/insert_chart_outlined.png";
 import credit_card from "@/public/credit_card.png";
 import "../globals.css";
 import { Inter } from "next/font/google";
-import { CreditCard, ChartColumnIncreasing, User, House, CircleDollarSign } from 'lucide-react';
-
+import { CreditCard, ChartColumnIncreasing, User, House, CircleDollarSign, Settings, Power , PhoneCall  } from 'lucide-react';
 
 
 
@@ -208,7 +207,7 @@ function Sidebar(props) { //props
                                             </h1>
                                         </div>
 
-                                        <div className="right_arrow_icon">
+                                        <div className={`${props.pageName === "Dashboard" ? "block" : "hidden"} right_arrow_icon`}>
                                             <Image src={right_arrow_icon} alt="" />
                                         </div>
                                     </div>
@@ -228,8 +227,8 @@ function Sidebar(props) { //props
                                             </h1>
                                         </div>
 
-                                        <div className="right_arrow_icon">
-                                            <Image src={point_icon} alt="" />
+                                        <div className={`${props.pageName === "My_Cards" || props.pageName === "My_Cards/Card_Details" ? "block" : props.pageName === "Add_New_card" ? "text-[#BBE659]" : "hidden"} right_arrow_icon`}>
+                                            <Image src={right_arrow_icon} alt="" />
                                         </div>
                                     </div>
                                 </Link>
@@ -238,14 +237,18 @@ function Sidebar(props) { //props
                                     <div className={`flex cursor-pointer ${props.pageName === "Transactions" ? 'bg-[#27463E] rounded-[100px]' : ""}  justify-between items-center px-7 py-3`}>
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                                <CreditCard color={`${props.pageName === "Transactions"? "#B8E659" : "white"}`} width="25px" height="25px" />
+                                                <CreditCard color={`${props.pageName === "Transactions" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
-                                        
+
                                             <h1
                                                 className={`${inter.className} ${props.pageName === "Transactions" ? "text-[#B8E659]" : "text-white"} font-normal text-[16px] font-inter`}
                                             >
-                                               Transactions
+                                                Transactions
                                             </h1>
+                                        </div>
+
+                                        <div className={`${props.pageName === "Transactions" ? "block" : "hidden"} right_arrow_icon`}>
+                                            <Image src={right_arrow_icon} alt="" />
                                         </div>
                                     </div>
                                 </Link>
@@ -253,20 +256,25 @@ function Sidebar(props) { //props
                                 <Link href={"/Customer_Panel/My_Request"}>
                                     <div className={`${props.pageName === "My_Request" ? 'bg-[#27463E] rounded-[100px]' : ""} flex cursor-pointer justify-between items-center px-7 py-3`}>
                                         <div className="flex items-center gap-4">
-                                           
 
-                                             <div className="page_icon">
+
+                                            <div className="page_icon">
                                                 <CircleDollarSign color={`${props.pageName === "My_Request" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
 
-                                            
+
 
                                             <h1
                                                 className={`${inter.className} ${props.pageName === "My_Request" ? "text-[#B8E659]" : "text-white"} font-normal text-[16px] font-inter`}
                                             >
-                                               My requests
+                                                My requests
                                             </h1>
                                         </div>
+
+                                        <div className={`${props.pageName === "My_Request" ? "block" : "hidden"} right_arrow_icon`}>
+                                            <Image src={right_arrow_icon} alt="" />
+                                        </div>
+
                                     </div>
                                 </Link>
                             </>
@@ -282,21 +290,31 @@ function Sidebar(props) { //props
                     <div className="flex justify-between items-center mb-5">
                         <div className="flex items-center gap-4">
                             <div className="page_icon">
-                                <img src={settings_icon} alt="" />
+                                <Settings />
                             </div>
                             <h1 className={`${inter.className} font-normal text-[18px] text-white`}>Setting</h1>
                         </div>
                     </div>
 
 
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center mb-5">
                         <div className="flex items-center gap-4">
                             <div className="page_icon">
-                                <img src={log_out_icon} alt="" />
+                                <Power color="#FF4E4E" className="w-6 h-6" />
                             </div>
                             <h1 className={`${inter.className} font-normal text-[18px] text-white`}>Log Out</h1>
                         </div>
                     </div>
+                    
+                     <div className={`${props.isAdminView ? "hidden" : "flex"} justify-between items-center`}>
+                        <div className="flex items-center gap-3 bg-[#27463E] px-6 py-3 rounded-[100px]">
+                            <div className="page_icon">
+                                <PhoneCall  color="#BAE959" className="w-5 h-5" />
+                            </div>
+                            <h1 className={`font-inter font-medium text-[14px] text-white`}>Contact Support</h1>
+                        </div>
+                    </div>
+
                 </div>
             </aside>
         </>

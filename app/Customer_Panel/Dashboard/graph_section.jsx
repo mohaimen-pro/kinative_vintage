@@ -17,7 +17,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import credit_card_image_one from "@/public/credit_card_image_1.png"
 import down_arrow from "../../../public/down_arrow.png"
@@ -42,6 +42,9 @@ import { ArrowRight } from "lucide-react";
 
 
 export default function Graph_section_customer() {
+
+
+
 
     //Graph logics (used recharts)
 
@@ -72,7 +75,7 @@ export default function Graph_section_customer() {
         { id: 3, filter_name: "This Year" },
     ];
 
-
+    
     const [isOpenFilterGraph, setisOpenFilterGraph] = useState(false);
     const [selected_filter, set_selected_filter] = useState(graph_filter_array_ofObjects[0]);
 
@@ -105,9 +108,13 @@ export default function Graph_section_customer() {
 
 
 
+
+
+
+
+
+
     });
-
-
 
     //SLider logics
 
@@ -191,6 +198,30 @@ export default function Graph_section_customer() {
     const current_card = cards[currentSlide]
 
 
+
+
+    const dropdownRef = useRef(null);
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
+            ) {
+
+                setisOpenFilterGraph(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+
+
+
     return (
         <div className="graph_section flex gap-4  pt-2">
             <div className="graph outline-0 border-0 bg-white flex-3 rounded-[10px] px-8 max-[500px]:px-5 pt-4">
@@ -200,10 +231,10 @@ export default function Graph_section_customer() {
                             <h2 className="font-inter font-semibold text-[18px] text-black">Transactions</h2>
                         </div>
                         <div className="sorting_section max-[500px]:pb-2 flex gap-2  items-center">
-                          
+
 
                             <div className="graph_filter block max-[700px]:hidden">
-                                <div className="relative">
+                                <div ref={dropdownRef} className="relative">
                                     <div
                                         onClick={() => setisOpenFilterGraph((prev) => !prev)}
                                         className="week_sorting_dropdown flex gap-1 bg-[#F7F7F7] cursor-pointer rounded-[40px] justify-between items-center px-4 py-3"

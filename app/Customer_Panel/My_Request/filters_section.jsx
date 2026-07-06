@@ -2,11 +2,30 @@
 import search_icon from "@/public/search_icon.png"
 import { Plus, ArrowDown } from "lucide-react"
 import cardImage from "../../../public/credit_card_image_1.png"
-import { useMemo, useState } from "react"
+import { useMemo, useState , useEffect , useRef } from "react"
 import Card_Request_List from "./card_request_lists"
 
 
 export default function Filters_section(props) {
+
+     const dropdownRef = useRef(null);
+    
+        useEffect(() => {
+            function handleClickOutside(event) {
+                if (
+                    dropdownRef.current &&
+                    !dropdownRef.current.contains(event.target)
+                ) {
+                    setisOpenFilterGraph(false);
+                }
+            }
+    
+            document.addEventListener("mousedown", handleClickOutside);
+    
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, []);
 
 
     const filter_buttons = [

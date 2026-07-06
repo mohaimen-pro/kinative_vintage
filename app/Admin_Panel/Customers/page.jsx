@@ -44,6 +44,8 @@ export default function Customers() {
         {
             id: 1,
             card_image_icon: "Users",
+            icon_bg_color:"#FFF5D9",
+            icon_color:"#FFBB38",
             card_label: "Total Customers",
             card_info_number: 121,
             show_view_all: false,
@@ -52,6 +54,8 @@ export default function Customers() {
         {
             id: 2,
             card_image_icon: "CircleCheck",
+            icon_bg_color:"#D9F1FF",
+            icon_color:"#67C0F4",
             card_label: "Active Customers",
             card_info_number: 42,
             show_view_all: false,
@@ -63,6 +67,8 @@ export default function Customers() {
             id: 3,
             card_image_icon: "Users",
             card_label: "Pending Customers",
+            icon_bg_color:"#FFF5D9",
+            icon_color:"#FFBB38",
             card_info_number: "$12,400",
             show_view_all: false,
 
@@ -73,6 +79,8 @@ export default function Customers() {
             id: 4,
             card_image_icon: "Ban",
             card_label: "Suspended",
+            icon_bg_color:"#FFDCD9",
+            icon_color:"#F6857B",
             card_info_number: 20,
             show_view_all: false,
 
@@ -146,8 +154,8 @@ export default function Customers() {
                                 <div key={card_info.id} className=" card-one group relative flex flex-col pl-4 pt-4 bg-white rounded-[10px] overflow-hidden">
 
                                     <div className={`${card_info.show_view_all ? "pb-15" : "pb-8"} card_info relative z-100 flex gap-4 items-center `}>
-                                        <div className={`${index === active_button_filter_index ? "bg-[#EBF9EB]" : "bg-[#FFF5D9] group-hover:bg-[#EBF9EB]"} user_profile  rounded-full w-14 h-14 flex justify-center items-center`}>
-                                            <Icon alt="" className={`${index === active_button_filter_index ? "text-[#628343]" : " group-hover:text-[#628343] text-[#FFBB38]"}  w-[28px] h-[28px]`} />
+                                        <div className={`${index === active_button_filter_index ? "bg-[#EBF9EB]" : `bg-[${card_info.icon_bg_color}] group-hover:bg-[#EBF9EB]`} user_profile  rounded-full w-14 h-14 flex justify-center items-center`}>
+                                            <Icon alt="" className={`${index === active_button_filter_index ? "text-[#628343]" : ` group-hover:text-[#628343] text-[${card_info.icon_color}]`}  w-[28px] h-[28px]`} />
                                         </div>
 
                                         <div className="total_customer_info">

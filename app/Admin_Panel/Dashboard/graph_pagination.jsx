@@ -17,7 +17,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState , useEffect , useRef } from "react";
 
 import credit_card_image_one from "../../../public/credit_card_image_1.png"
 import down_arrow from "../../../public/down_arrow.png"
@@ -189,6 +189,26 @@ export default function Graph_Pagination_section() {
     const current_card = cards[currentSlide]
 
 
+    const dropdownRef = useRef(null);
+        useEffect(() => {
+            function handleClickOutside(event) {
+                if (
+                    dropdownRef.current &&
+                    !dropdownRef.current.contains(event.target)
+                ) {
+    
+                    setisOpenFilterGraph(false)
+                }
+            }
+    
+            document.addEventListener("mousedown", handleClickOutside);
+    
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, []);
+
+
     return (
         <div className="graph_section flex max-[700px]:flex-col max-[700px]:justify-center gap-4 pt-2">
             <div className="graph outline-0 border-0 bg-white flex-3 rounded-[10px] px-8 max-[500px]:px-4 pt-4">
@@ -281,8 +301,8 @@ export default function Graph_Pagination_section() {
                         </Link>
 
 
-                        <div className="graph_filter hidden max-[700px]:block">
-                            <div className="relative">
+                         <div className="graph_filter">
+                            <div ref={dropdownRef} className="relative">
                                 <div
                                     onClick={() => setisOpenFilterGraph((prev) => !prev)}
                                     className="week_sorting_dropdown flex gap-1 bg-[#F7F7F7] cursor-pointer rounded-[40px] justify-between items-center px-4 py-3"
@@ -297,7 +317,7 @@ export default function Graph_Pagination_section() {
                                 </div>
 
                                 {isOpenFilterGraph && (
-                                    <div className="absolute top-full left-0  z-200 mt-2 w-full bg-white rounded-2xl border border-gray-200 shadow-xl p-2 flex flex-col gap-1 ">
+                                    <div className="absolute top-full left-0 mt-2 w-full bg-white rounded-2xl border border-gray-200 shadow-xl p-2 flex flex-col gap-1 z-50">
                                         {graph_filter_array_ofObjects.map((filter) => (
                                             <div
                                                 onClick={() => {
@@ -306,7 +326,7 @@ export default function Graph_Pagination_section() {
                                                     set_graph_filter(filter.filter_name)
                                                 }}
                                                 key={filter.id}
-                                                className="rounded-xl px-2 py-3 cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
+                                                className="flex w-full items-center  justify-between rounded-xl px-2 py-3 cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
                                             >
                                                 <div className="flex items-center">
                                                     <p className="font-inter text-[12px] font-medium text-[#5F887D]">
@@ -322,6 +342,7 @@ export default function Graph_Pagination_section() {
                                     </div>
                                 )}
                             </div>
+
                         </div>
                     </div>
 

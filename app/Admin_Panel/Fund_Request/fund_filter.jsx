@@ -2,7 +2,7 @@
 import search_icon from "@/public/search_icon.png"
 import { Plus } from "lucide-react"
 import cardImage from "../../../public/credit_card_image_1.png"
-import { useMemo, useState } from "react"
+import { useMemo, useState , useRef , useEffect } from "react"
 import customer_details_icon from "../../../public/customer_details_icon.png"
 import Fund_Request_list from "./fund_request_list"
 import Image from "next/image"
@@ -118,7 +118,25 @@ export default function Fund_Filter({ fund_requests }) {
 
 
 
+    const dropdownRef = useRef(null);
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
+            ) {
+                
+                setShowPicker(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
 
 
@@ -130,7 +148,7 @@ export default function Fund_Filter({ fund_requests }) {
             <div className="max-[580px]:pl-8 pl-12 pt-8 pr-6 bg-white">
                 <div className="date_filter flex max-[580px]:flex-col max-[580px]:gap-4 justify-between pb-10">
                     <h1 className="font-inter font-semibold text-[#223933] text-[18px]">Fund Request</h1>
-                    <div className="dropdown min-w-60 relative flex justify-center rounded-[100px] bg-[#F7F7F7] items-center gap-1 px-4 py-3">
+                    <div ref={dropdownRef} className="dropdown min-w-60 relative flex justify-center rounded-[100px] bg-[#F7F7F7] items-center gap-1 px-4 py-3">
 
 
 

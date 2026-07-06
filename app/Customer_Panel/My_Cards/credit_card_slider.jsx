@@ -7,11 +7,64 @@ import { useState } from "react";
 import { ArrowLeft } from "lucide-react"
 import { ArrowRight } from "lucide-react"
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { motion } from "framer-motion";
+import { AnimatePresence } from "motion/react";
+
+
+
+
+
 
 export default function Credit_Card_slider() {
 
 
     const [isActivateCard, set_is_active_Card] = useState(false)
+    const [currentSlideActiveCards, setcurrentSlideActiveCards] = useState(0);
+    const [currentSlideFrequentlyCards, setcurrentSlideFrequentlyCards] = useState(0);
+
+
+    const cards = [
+        {
+            id: 1,
+            image: "/credit_card_image_1.png",
+            card_number: "5675 6789 1234 9807",
+            type: "Virtual",
+        },
+        {
+            id: 2,
+            image: "/credit_card_image_1.png",
+            card_number: "5675 6789 1234 9807",
+            type: "Physical",
+        },
+        {
+            id: 3,
+            image: "/credit_card_image_1.png",
+            card_number: "5675 6789 2313 9807",
+            type: "Virtual",
+        },
+
+        {
+            id: 4,
+            image: "/credit_card_image_1.png",
+            card_number: "5675 6789 0000 9807",
+            type: "Virtual",
+        },
+    ];
+
+
+    const credit_cards = [];
+
+    for (var x = 0; x < cards.length; x += 2) {
+        credit_cards.push(cards.slice(x, x + 2));
+    }
+
+
 
 
     return (
@@ -19,233 +72,216 @@ export default function Credit_Card_slider() {
             <div className="activate_card flex flex-col gap-4">
                 <h1 className="font-semibold text-[18px] font-inter text-[#223933] pl-2">Activate Cards</h1>
 
-                <div className="deactivated_cards flex gap-4 overflow-x-auto pb-2">
+                <div className="deactivated_cards flex gap-4 overflow-x-hidden pb-2">
 
-                    <div
-                        className="relative w-[358px] h-[226px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
-                        style={{
-                            backgroundImage: "url(/credit_card_bg.png)",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
+                    <motion.div
+                        key={currentSlideActiveCards}
+                        initial={{ x: 80, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -80, opacity: 0 }}
+                        transition={{
+                            duration: 0.35,
+                            ease: "easeInOut",
                         }}
+                        className="flex gap-4"
                     >
-                        {/* Blur Overlay */}
-                        {
-                            !isActivateCard ? (
-                                <img
-                                    src="/credit_card_blur.png"
-                                    alt=""
-                                    className="absolute inset-0 w-full h-full object-cover z-10 px-2 pb-2"
-                                />
-                            ) : ""
-                        }
 
                         {
-                            !isActivateCard ? (
-                                <div className="absolute z-200 inset-0 flex items-center cursor-pointer justify-center">
-                                    <button onClick={() => set_is_active_Card(true)} className="bg-[#BAE959] max-w-[180px] cursor-pointer rounded-full text-[14px] font-medium font-inter text-[#27463E] px-8 py-2">
-                                        Activate Card
-                                    </button>
-                                </div>
-                            ) :
-                                ""
-                        }
+                            credit_cards[currentSlideActiveCards].map((info) => {
+                                return (
+                                    <div
+                                        key={info.id}
+                                        className="relative w-[358px] h-[226px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
+                                        style={{
+                                            backgroundImage: "url(/credit_card_bg.png)",
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                        }}
+                                    >
+                                        {/* Blur Overlay */}
+                                        {
+                                            !isActivateCard ? (
+                                                <img
+                                                    src="/credit_card_blur.png"
+                                                    alt=""
+                                                    className="absolute inset-0 w-full h-full object-cover z-10 px-2 pb-2"
+                                                />
+                                            ) : ""
+                                        }
+
+                                        {
+                                            !isActivateCard ? (
+                                                <div className="absolute z-200 inset-0 flex items-center cursor-pointer justify-center">
+                                                    <button onClick={() => set_is_active_Card(true)} className="bg-[#BAE959] max-w-[180px] cursor-pointer rounded-full text-[14px] font-medium font-inter text-[#27463E] px-8 py-2">
+                                                        Activate Card
+                                                    </button>
+                                                </div>
+                                            ) :
+                                                ""
+                                        }
 
 
-                        {/* Card Content */}
-                        <div className="relative z-20 mt-auto">
-                            <h2
-                                className={`${isActivateCard ? "" : "opacity-20"} text-[17px] mt-auto mb-6 font-inter text-[#E0BB8B]`}
-                            >
-                                5675 6789 1234 9807
-                            </h2>
+                                        {/* Card Content */}
+                                        <div className="relative z-20 mt-auto">
+                                            <h2
+                                                className={`${isActivateCard ? "" : "opacity-20"} text-[17px] mt-auto mb-6 font-inter text-[#E0BB8B]`}
+                                            >
+                                                {info.card_number}
+                                            </h2>
 
-                            <div className={`${isActivateCard ? "" : "opacity-20"} flex justify-between items-end`}>
-                                <div className="flex gap-10">
-                                    <div>
-                                        <p className="text-[15px] font-light font-inter text-white">
-                                            Valid Through
-                                        </p>
-                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
-                                            ****
-                                        </p>
+                                            <div className={`${isActivateCard ? "" : "opacity-20"} flex justify-between items-end`}>
+                                                <div className="flex gap-10">
+                                                    <div>
+                                                        <p className="text-[15px] font-light font-inter text-white">
+                                                            Valid Through
+                                                        </p>
+                                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
+                                                            ****
+                                                        </p>
+                                                    </div>
+
+                                                    <div>
+                                                        <p className="text-[15px] font-light font-inter text-white">
+                                                            CVV
+                                                        </p>
+                                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
+                                                            ***
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <div>
-                                        <p className="text-[15px] font-light font-inter text-white">
-                                            CVV
-                                        </p>
-                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
-                                            ***
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        className="relative w-[358px] h-[226px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
-                        style={{
-                            backgroundImage: "url(/credit_card_bg.png)",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                        }}
-                    >
-                        {/* Blur Overlay */}
-                        {
-                            !isActivateCard ? (
-                                <img
-                                    src="/credit_card_blur.png"
-                                    alt=""
-                                    className="absolute inset-0 w-full h-full object-cover z-10 px-2 pb-2"
-                                />
-                            ) : ""
-                        }
-
-                        {
-                            !isActivateCard ? (
-                                <div className="absolute z-200 inset-0 flex items-center cursor-pointer justify-center">
-                                    <button onClick={() => set_is_active_Card(true)} className="bg-[#BAE959] max-w-[180px] cursor-pointer rounded-full text-[14px] font-medium font-inter text-[#27463E] px-8 py-2">
-                                        Activate Card
-                                    </button>
-                                </div>
-                            ) :
-                                ""
+                                )
+                            })
                         }
 
 
-                        {/* Card Content */}
-                        <div className="relative z-20 mt-auto">
-
-                            {/* Blur Overlay */}
+                    </motion.div>
 
 
 
 
-                            <h2
-                                className={`${isActivateCard ? "" : "opacity-20"} text-[17px] mt-auto mb-6 font-inter text-[#E0BB8B]`}
-                            >
-                                5675 6789 1234 9807
-                            </h2>
 
-                            <div className={`${isActivateCard ? "" : "opacity-20"} flex justify-between items-end`}>
-                                <div className="flex gap-10">
-                                    <div>
-                                        <p className="text-[15px] font-light font-inter text-white">
-                                            Valid Through
-                                        </p>
-                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
-                                            ****
-                                        </p>
-                                    </div>
 
-                                    <div>
-                                        <p className="text-[15px] font-light font-inter text-white">
-                                            CVV
-                                        </p>
-                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
-                                            ***
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+
+
+                <div className="dots flex gap-1 pt-4 justify-center items-center">
+
+                    {credit_cards.map((card, index) => (
+                        <div
+                            key={index + 1}
+                            onClick={() => setcurrentSlideActiveCards(index)}
+                            className={`cursor-pointer rounded-full transition-all duration-300 ${currentSlideActiveCards === index
+                                ? "w-2 h-2 bg-[#BAE959]"
+                                : "w-2 h-2 bg-[#223833]"
+                                }`}
+                        />
+                    ))}
+
+
                 </div>
             </div>
-            <div className="frequently_used_card flex flex-col gap-4">
+            <div className="frequently_used_card flex flex-col gap-4 ">
                 <h1 className="font-semibold text-[18px] font-inter text-[#223933] pl-2">Frequently Used Cards</h1>
 
-                <div className="deactivated_cards flex gap-4 overflow-x-auto pb-2">
+                <div className="deactivated_cards flex gap-4 overflow-x-hidden pb-2">
 
-                    <div
-                        className="relative w-[358px] h-[235px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9  flex flex-col justify-between overflow-hidden"
-                        style={{
-                            backgroundImage: "url(/credit_card_bg.png)",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
+                    <motion.div
+                        key={currentSlideFrequentlyCards}
+                        initial={{ x: 80, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -80, opacity: 0 }}
+                        transition={{
+                            duration: 0.35,
+                            ease: "easeInOut",
                         }}
+                        className="flex gap-4"
                     >
 
+                        {
+                            credit_cards[currentSlideFrequentlyCards].map((info) => {
+                                return (
+                                    <div
+                                        key={info.id}
+                                        className="relative w-[358px] h-[235px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9  flex flex-col justify-between overflow-hidden"
+                                        style={{
+                                            backgroundImage: "url(/credit_card_bg.png)",
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                        }}
+                                    >
 
 
-                        {/* Card Content */}
-                        <div className="relative z-20 mt-auto">
-                            <h2
-                                className={`text-[17px] mt-auto mb-6 font-normal font-inter text-[#E0BB8B]`}
-                            >
-                                5675 6789 1234 9807
-                            </h2>
 
-                            <div className={`flex justify-between items-end`}>
-                                <div className="flex gap-10">
-                                    <div>
-                                        <p className="text-[15px] font-light font-inter text-white">
-                                            Valid Through
-                                        </p>
-                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
-                                            ****
-                                        </p>
+                                        {/* Card Content */}
+                                        <div className="relative z-20 mt-auto">
+                                            <h2
+                                                className={`text-[17px] mt-auto mb-6 font-normal font-inter text-[#E0BB8B]`}
+                                            >
+                                                {info.card_number}
+                                            </h2>
+
+                                            <div className={`flex justify-between items-end`}>
+                                                <div className="flex gap-10">
+                                                    <div>
+                                                        <p className="text-[15px] font-light font-inter text-white">
+                                                            Valid Through
+                                                        </p>
+                                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
+                                                            ****
+                                                        </p>
+                                                    </div>
+
+                                                    <div>
+                                                        <p className="text-[15px] font-light font-inter text-white">
+                                                            CVV
+                                                        </p>
+                                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
+                                                            ***
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <div>
-                                        <p className="text-[15px] font-light font-inter text-white">
-                                            CVV
-                                        </p>
-                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
-                                            ***
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        className="relative w-[358px] h-[235px] shrink-0 rounded-[9px] p-9 flex flex-col justify-between overflow-hidden rounded-[9px] p-9 flex flex-col justify-between overflow-hidden"
-                        style={{
-                            backgroundImage: "url(/credit_card_bg.png)",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                        }}
-                    >
+                                )
+                            })
+                        }
+                    </motion.div>
 
 
 
-                        {/* Card Content */}
-                        <div className="relative z-20 mt-auto">
-                            <h2
-                                className={`text-[17px] mt-auto mb-6 font-normal font-inter text-[#E0BB8B]`}
-                            >
-                                5675 6789 1234 9807
-                            </h2>
 
-                            <div className={`flex justify-between items-end`}>
-                                <div className="flex gap-10">
-                                    <div>
-                                        <p className="text-[15px] font-light font-inter text-white">
-                                            Valid Through
-                                        </p>
-                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
-                                            ****
-                                        </p>
-                                    </div>
 
-                                    <div>
-                                        <p className="text-[15px] font-light font-inter text-white">
-                                            CVV
-                                        </p>
-                                        <p className="text-[21px] tracking-[2px] text-[#E0BB8B]">
-                                            ***
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+
+                <div className="dots flex gap-1 pt-4 justify-center items-center">
+                    {credit_cards.map((card, index) => (
+                        <div
+                            key={index + 1}
+                            onClick={() => setcurrentSlideFrequentlyCards(index)}
+                            className={`cursor-pointer rounded-full transition-all duration-300 ${currentSlideFrequentlyCards === index
+                                ? "w-2 h-2 bg-[#BAE959]"
+                                : "w-2 h-2 bg-[#223833]"
+                                }`}
+                        />
+                    ))}
+
+
                 </div>
             </div>
         </div>
     )
 }
+
+
+
+
+
+
+
+
+
+

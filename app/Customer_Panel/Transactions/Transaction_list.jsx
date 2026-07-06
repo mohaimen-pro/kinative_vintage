@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Plus, ArrowDown, Download } from "lucide-react"
 
 //date picker
@@ -15,7 +15,26 @@ import amazon_logo from "../../../public/apple_logo.png"
 
 export default function Transaction_List() {
 
+    const dropdownRef = useRef(null);
+    const [showPicker, setShowPicker] = useState(false);
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
+            ) {
+                setisOpenFilterGraph(false);
+                setShowPicker(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     const graph_filter_array_ofObjects = [
         {
@@ -34,7 +53,6 @@ export default function Transaction_List() {
     ]
 
 
-    const [showPicker, setShowPicker] = useState(false);
 
 
     const [range, setRange] = useState([
@@ -138,7 +156,7 @@ export default function Transaction_List() {
 
                 <div className="flex items-center gap-2 max-[550px]:gap-5 max-[1050px]:grid max-[1050px]:grid-cols-2 max-[550px]:grid-cols-1 max-[1050px]:grid max-[1050px]:grid-cols-2 max-[1050px]:justify-center max-[1050px]:items-center">
                     <div className="graph_filter max-[550px]:w-[70%]">
-                        <div className="relative">
+                        <div ref={dropdownRef} className="relative">
                             <div
                                 onClick={() => setisOpenFilterGraph((prev) => !prev)}
                                 className="flex w-full items-center justify-between rounded-[100px] border border-gray-200 bg-[#F7F7F7] px-6 py-2 cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
@@ -178,12 +196,13 @@ export default function Transaction_List() {
 
                     <div className="date_filter  flex items-center justify-between max-[550px]:w-[100%]">
 
-                        <div className="dropdown min-[555px]:min-w-60 relative flex justify-center rounded-[100px] border border-gray-200 bg-[#F7F7F7] items-center gap-1 px-6 py-2">
+                        <div ref={dropdownRef} className="dropdown min-[555px]:min-w-60 relative flex justify-center rounded-[100px] border border-gray-200 bg-[#F7F7F7] items-center gap-1 px-6 py-2">
 
 
 
                             {/* Button */}
                             <button
+                                
                                 onClick={() => {
                                     setShowPicker(!showPicker);
 
@@ -244,12 +263,12 @@ export default function Transaction_List() {
                         >
                             <div className="flex-1 flex gap-3 items-center">
                                 <img src={transaction.logo} alt={transaction.company} />
-                                <h1 className="font-lato font-semibold text-[15px] text-[#223933]">
+                                <h1 className="font-lato font-semibold text-[14px] text-[#223933]">
                                     {transaction.company}
                                 </h1>
                             </div>
 
-                            <h1 className="flex-1 font-inter text-[15px] font-medium text-[#6E8D37]">
+                            <h1 className="flex-1 font-inter text-[14px] font-medium text-[#6E8D37] pl-4">
                                 {transaction.cardNumber}
                             </h1>
 
@@ -288,7 +307,7 @@ export default function Transaction_List() {
 
 
 
-                <div className="max-[700px]:block hidden">
+                <div className="max-[800px]:block hidden">
                     {transactions.map((transaction) => (
                         <div
                             key={transaction.id}

@@ -18,10 +18,18 @@ import format_list_bulleted from "../../../../public/format_list_bulleted.png"
 import Image from "next/image";
 import format_list_bulleted_black from "../../../../public/format_list_bulleted_black.png"
 import { div, img } from "motion/react-client";
-
+import Dropdown from './dropdown_section'
 
 
 export default function Graph_Section() {
+
+     const graph_filter_array_ofObjects = [
+        { id: 1, filter_name: "This Week" },
+        { id: 2, filter_name: "This Month" },
+        { id: 3, filter_name: "This Year" },
+    ];
+
+    const [selected_filter, set_selected_filter] = useState(graph_filter_array_ofObjects[0]);
 
     const data = [
         { date: "2026-07-01", value: 1000 },
@@ -41,15 +49,10 @@ export default function Graph_Section() {
     const [show_graph, set_show_graph] = useState(true)
 
 
-    const graph_filter_array_ofObjects = [
-        { id: 1, filter_name: "This Week" },
-        { id: 2, filter_name: "This Month" },
-        { id: 3, filter_name: "This Year" },
-    ];
+
 
 
     const [isOpenFilterGraph, setisOpenFilterGraph] = useState(false);
-    const [selected_filter, set_selected_filter] = useState(graph_filter_array_ofObjects[0]);
 
 
     const filtered_data_forGraph = data.filter((item) => {
@@ -93,7 +96,7 @@ export default function Graph_Section() {
                     <div className="sorting_section flex gap-2 items-center">
 
 
-                        <div className="graph_filter">
+                        {/* <div className="graph_filter">
                             <div className="relative">
                                 <div
                                     onClick={() => setisOpenFilterGraph((prev) => !prev)}
@@ -138,7 +141,9 @@ export default function Graph_Section() {
 
 
 
-                        </div>
+                        </div> */}
+
+                        <Dropdown isGraph={true} set_selected_filter={set_selected_filter} selected_filter={selected_filter}/>
 
 
                     </div>
