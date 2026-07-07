@@ -60,6 +60,7 @@ export default function Dropdown(props) {
                             <div
                                 onClick={() => {
                                     props.set_selected_filter(filter);
+                                    (props.set_graph_filter ? props.set_graph_filter(filter.filter_name) : "")
                                     setisOpenFilterGraph(false);
                                     set_graph_filter(filter.filter_name)
                                 }}

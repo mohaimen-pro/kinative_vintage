@@ -18,23 +18,7 @@ export default function Transaction_List() {
     const dropdownRef = useRef(null);
     const [showPicker, setShowPicker] = useState(false);
 
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (
-                dropdownRef.current &&
-                !dropdownRef.current.contains(event.target)
-            ) {
-                setisOpenFilterGraph(false);
-                setShowPicker(false)
-            }
-        }
-
-        document.addEventListener("mousedown", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
+   
 
     const graph_filter_array_ofObjects = [
         {
@@ -147,6 +131,27 @@ export default function Transaction_List() {
     ];
 
 
+
+
+     useEffect(() => {
+        function handleClickOutside(event) {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
+            ) {
+                setisOpenFilterGraph(false);
+                setShowPicker(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+
     return (
         <div className="">
             <div className="head flex  min-[1050px]:justify-between max-[1050px]:flex-col gap-4 pb-10 pr-6 ">
@@ -156,14 +161,15 @@ export default function Transaction_List() {
 
                 <div className="flex items-center gap-2 max-[550px]:gap-5 max-[1050px]:grid max-[1050px]:grid-cols-2 max-[550px]:grid-cols-1 max-[1050px]:grid max-[1050px]:grid-cols-2 max-[1050px]:justify-center max-[1050px]:items-center">
                     <div className="graph_filter max-[550px]:w-[70%]">
-                        <div ref={dropdownRef} className="relative">
+                        <div  className="relative">
                             <div
+                               
                                 onClick={() => setisOpenFilterGraph((prev) => !prev)}
                                 className="flex w-full items-center justify-between rounded-[100px] border border-gray-200 bg-[#F7F7F7] px-6 py-2 cursor-pointer transition-all duration-200 hover:bg-[#F3F7F6] hover:text-[#5F887D]"
                             >
                                 <div className="flex items-center gap-4">
                                     <p className="font-inter text-[13px] font-medium text-[#8B8B8B]">
-                                        {selected_filter.filter_type}
+                                        {graph_filter}
                                     </p>
 
                                     <ArrowDown color="#A1CC53" className="w-4 h-4" />
@@ -171,9 +177,10 @@ export default function Transaction_List() {
                             </div>
 
                             {isOpenFilterGraph && (
-                                <div className="absolute top-full left-0 z-200 mt-2 w-full rounded-2xl border border-gray-200 bg-white p-2 shadow-xl flex flex-col gap-1">
+                                <div ref={dropdownRef} className="absolute top-full left-0 z-200 mt-2 w-full rounded-2xl border border-gray-200 bg-white p-2 shadow-xl flex flex-col gap-1">
                                     {graph_filter_array_ofObjects.map((info) => (
                                         <div
+                                            
                                             key={info.id}
                                             onClick={() => {
                                                 set_selected_filter(info);

@@ -208,6 +208,11 @@ export default function Graph_Pagination_section() {
             };
         }, []);
 
+   useEffect(() => {
+    console.log(graph_filter);
+}, [graph_filter]);
+
+
 
     return (
         <div className="graph_section flex max-[700px]:flex-col max-[700px]:justify-center gap-4 pt-2">
@@ -240,7 +245,7 @@ export default function Graph_Pagination_section() {
                             </div>
 
                             <div className="graph_filter block max-[700px]:hidden">
-                                <div className="relative">
+                                <div ref={dropdownRef} className="relative">
                                     <div
                                         onClick={() => setisOpenFilterGraph((prev) => !prev)}
                                         className="week_sorting_dropdown flex gap-1 bg-[#F7F7F7] cursor-pointer rounded-[40px] justify-between items-center px-4 py-3"
@@ -269,6 +274,7 @@ export default function Graph_Pagination_section() {
                                                     <div className="flex items-center">
                                                         <p className="font-inter text-[12px] font-medium text-[#5F887D]">
                                                             {filter.filter_name}
+                                                            
                                                         </p>
 
 
