@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
 
     <main className="flex">
-      <div className="flex-1 bg-white min-h-screen flex flex-col px-10 py-8">
+      <div className="flex-1 bg-white min-h-screen flex flex-col px-10 max-[400px]:px-8  py-8">
         {/* Logo */}
         <div>
           <img
@@ -32,7 +32,7 @@ export default function RootLayout({
 
 
         {/* Footer */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between max-[900px]:flex-col max-[900px]:items-start max-[900px]:gap-4 ">
             <p className="font-inter text-[15px] font-normal text-[#697E79]">
               Already have an account?{" "}
               <span className="font-semibold text-[#638125] text-[15px] cursor-pointer">
@@ -48,7 +48,7 @@ export default function RootLayout({
       </div>
 
 
-      <div className="flex-1">
+      <div className="flex-1 max-[900px]:flex-0 max-[900px]:hidden block">
         <Right_Side_Login_Page />
       </div>
     </main>

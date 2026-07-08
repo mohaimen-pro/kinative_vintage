@@ -14,14 +14,14 @@ export default function email() {
 
             {/* Center Content */}
             <div className="flex-1 flex items-center">
-                <div className="w-full max-w-[520px] ml-[50px]">
+                <div className="w-full max-w-[520px] min-[901px]:ml-[50px] max-[900px]:ml-0 max-[900px]:mx-auto">
                     {/* Heading */}
-                    <div className="mb-8">
-                        <h1 className="font-inter text-[36px] font-semibold text-[#223933]">
+                    <div className="mb-8 max-[400px]:mb-8">
+                        <h1 className="font-inter text-[36px] max-[1000px]:text-[30px] max-[400px]:text-[25px] font-semibold text-[#223933]">
                             Welcome Aboard!
                         </h1>
 
-                        <p className="font-inter text-[15px] leading-[24px] font-normal text-[#697E79]">
+                        <p className="font-inter text-[15px] max-[1000px]:text-[14px] leading-[24px] font-normal text-[#697E79]">
                             Enter your email address and set your password
                         </p>
                     </div>

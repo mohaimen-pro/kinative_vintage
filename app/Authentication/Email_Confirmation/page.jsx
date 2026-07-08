@@ -5,7 +5,7 @@ import Link from "next/link"
 export default function Email_Confirmation() {
 
     return (
-        <div className="flex flex-col items-center   justify-center min-h-screen  px-6">
+        <div className="flex flex-col items-center   justify-center min-h-screen  px-6 max-[400px]:px-0">
             <div className="message bg-[#F7F7F7] rounded-[10px] px-6 py-8">
                 {/* Icon */}
                 <div className="w-[65px] h-[65px] mx-auto rounded-full bg-[#E7F6C9] flex items-center justify-center">
