@@ -1,22 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./Templates/Header"
-import Sidebar from "./Templates/sidebar"
-
-
-import { Inter, Lato } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"],
-  variable: "--font-lato",
-});
 
 
 export const metadata: Metadata = {
@@ -26,26 +9,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-
+}) {
   return (
-    <html
-      lang="en"
-      className={``}
-    >
-      <body className={`${inter.variable} ${lato.variable} p-0 m-0 overflow-hidden bg-[#F7F7F7]`}>
-        <section className=" flex">
-          
-
-          <div className=" mt-1.5 max-[500px]:mr-0 max-[1200px]:mt-0 mr-2 flex-10  min-h-screen lg:h-screen overflow-auto">
-
-            {children}
-
-          </div>
-        </section>
-
+    <html lang="en">
+      <body className="p-0 m-0 overflow-hidden bg-white">
+        {children}
       </body>
     </html>
   );

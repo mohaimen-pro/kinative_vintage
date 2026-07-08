@@ -10,7 +10,7 @@ import Analytics_page_icon from "@/public/insert_chart_outlined.png";
 import credit_card from "@/public/credit_card.png";
 import "../globals.css";
 import { Inter } from "next/font/google";
-import { CreditCard, ChartColumnIncreasing, User, House, CircleDollarSign, Settings, Power , PhoneCall  } from 'lucide-react';
+import { CreditCard, ChartColumnIncreasing, User, House, CircleDollarSign, Settings, Power, PhoneCall } from 'lucide-react';
 
 
 
@@ -298,18 +298,20 @@ function Sidebar(props) { //props
 
 
                     <div className="flex justify-between items-center mb-5">
-                        <div className="flex items-center gap-4">
-                            <div className="page_icon">
-                                <Power color="#FF4E4E" className="w-6 h-6" />
+                        <Link href={"/Authentication/Email"}>
+                            <div className="flex items-center gap-4">
+                                <div className="page_icon">
+                                    <Power color="#FF4E4E" className="w-6 h-6" />
+                                </div>
+                                <h1 className={`${inter.className} font-normal text-[18px] text-white`}>Log Out</h1>
                             </div>
-                            <h1 className={`${inter.className} font-normal text-[18px] text-white`}>Log Out</h1>
-                        </div>
+                        </Link>
                     </div>
-                    
-                     <div className={`${props.isAdminView ? "hidden" : "flex"} justify-between items-center`}>
+
+                    <div className={`${props.isAdminView ? "hidden" : "flex"} justify-between items-center`}>
                         <div className="flex items-center gap-3 bg-[#27463E] px-6 py-3 rounded-[100px]">
                             <div className="page_icon">
-                                <PhoneCall  color="#BAE959" className="w-5 h-5" />
+                                <PhoneCall color="#BAE959" className="w-5 h-5" />
                             </div>
                             <h1 className={`font-inter font-medium text-[14px] text-white`}>Contact Support</h1>
                         </div>
