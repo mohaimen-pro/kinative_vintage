@@ -30,7 +30,7 @@ export default function DashboardLayout({
           pageName={page_name}
         />
 
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 flex flex-col overflow-hidden pt-2">
           
           <Header
             setIsOpen={setIsOpen}
@@ -40,7 +40,7 @@ export default function DashboardLayout({
             set_isDarkMode={set_isDarkMode}
           />
 
-          <main className="flex-1 min-w-0 overflow-y-auto">
+          <main className="flex-1 min-w-0 pr-2 overflow-y-auto">
             {children}
           </main>
         </div>

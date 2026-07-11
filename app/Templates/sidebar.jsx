@@ -10,7 +10,7 @@ import Analytics_page_icon from "@/public/insert_chart_outlined.png";
 import credit_card from "@/public/credit_card.png";
 import "../globals.css";
 import { Inter } from "next/font/google";
-import { CreditCard, ChartColumnIncreasing, User, House, CircleDollarSign, Settings, Power, PhoneCall } from 'lucide-react';
+import { CreditCard, ChartColumnIncreasing, User, House, CircleDollarSign, Settings, Power, PhoneCall, BellDot } from 'lucide-react';
 
 
 
@@ -163,29 +163,35 @@ function Sidebar(props) { //props
                                     </div>
                                 </Link>
 
-                                <Link href={"/Analytics"}>
-                                    <div className="flex cursor-pointer justify-between items-center px-7 py-3">
+
+
+                                <Link href={"/Admin_Panel/Activity_Log"}>
+                                    <div className={`${props.pageName === "Activity_Log" ? 'bg-[#27463E] rounded-[100px]' : ""} flex cursor-pointer justify-between items-center px-7 py-3`}>
                                         <div className="flex items-center gap-4">
-                                            <div className="page_icon">
-                                                <Image src={Analytics_page_icon} alt="" />
+                                            <div>
+                                                <BellDot color={`${props.pageName === "Activity_Log" ? "#B8E659" : "white"}`} width="25px" height="25px" />
                                             </div>
 
-                                            <h1 className={`${inter.className} font-normal text-[16px] text-white`}>
-                                                Analytics
+                                            <h1 className={`${inter.className} ${props.pageName === "Activity_Log" ? "text-[#B8E659]" : "text-white"} font-normal text-[16px] `}>
+                                                Activity Log
                                             </h1>
+                                        </div>
+                                        <div className={`${props.pageName === "Activity_Log" ? "block" : "hidden"} pr-3 pt-1 right_arrow_icon`}>
+                                            <Image src={right_arrow_icon} alt="" />
                                         </div>
                                     </div>
                                 </Link>
 
-                                <Link href={"/Activity_Log"}>
+
+                                <Link href={"/Analytics"}>
                                     <div className="flex cursor-pointer justify-between items-center px-7 py-3">
                                         <div className="flex items-center gap-4">
                                             <div className="page_icon">
-                                                <Image src={activity_log_icon} alt="" />
+                                                <PhoneCall width="25px" height="25px" />
                                             </div>
 
                                             <h1 className={`${inter.className} font-normal text-[16px] text-white`}>
-                                                Activity Log
+                                                Support Request
                                             </h1>
                                         </div>
                                     </div>
